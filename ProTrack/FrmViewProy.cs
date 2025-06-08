@@ -10,11 +10,21 @@ using System.Windows.Forms;
 
 namespace ProTrack
 {
-    public partial class FRMLogin : Form
+    public partial class FrmViewProy : Form
     {
-        public FRMLogin()
+        public FrmViewProy()
         {
             InitializeComponent();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FrmViewProy_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

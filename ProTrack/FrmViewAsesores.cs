@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace ProTrack
 {
-    public partial class FRMLogin : Form
+    public partial class FrmViewAsesores : Form
     {
-        public FRMLogin()
+        public FrmViewAsesores()
         {
             InitializeComponent();
         }

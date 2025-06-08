@@ -33,8 +33,45 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.8.0.0\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Oracle.ManagedDataAccess, Version=4.122.23.1, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
+      <HintPath>..\packages\Oracle.ManagedDataAccess.23.8.0\lib\net472\Oracle.ManagedDataAccess.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.4.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.6.0\lib\net462\System.Buffers.dll</HintPath>
+    </Reference>
     <Reference Include="System.Core" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=6.0.0.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.6.0.2\lib\net461\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Formats.Asn1, Version=8.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Formats.Asn1.8.0.1\lib\net462\System.Formats.Asn1.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.6.0\lib\net462\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.5.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.6.0\lib\net462\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.1.0\lib\net462\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Encodings.Web, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encodings.Web.8.0.0\lib\net462\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Json, Version=8.0.0.5, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Json.8.0.5\lib\net462\System.Text.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.6.0\lib\net462\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,14 +83,75 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConexionOracle.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmHome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmHome.Designer.cs">
+      <DependentUpon>FrmHome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmNewAlumno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmNewAlumno.Designer.cs">
+      <DependentUpon>FrmNewAlumno.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmNewProy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmNewProy.Designer.cs">
+      <DependentUpon>FrmNewProy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmViewAlumnos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmViewAlumnos.Designer.cs">
+      <DependentUpon>FrmViewAlumnos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmViewAsesores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmViewAsesores.Designer.cs">
+      <DependentUpon>FrmViewAsesores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmViewAvances.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmViewAvances.Designer.cs">
+      <DependentUpon>FrmViewAvances.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmViewProy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmViewProy.Designer.cs">
+      <DependentUpon>FrmViewProy.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmHome.resx">
+      <DependentUpon>FrmHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmNewProy.resx">
+      <DependentUpon>FrmNewProy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmViewAlumnos.resx">
+      <DependentUpon>FrmViewAlumnos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmViewAsesores.resx">
+      <DependentUpon>FrmViewAsesores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmViewProy.resx">
+      <DependentUpon>FrmViewProy.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -62,7 +160,15 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="Oracle.DataAccess.Common.Configuration.Section.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Oracle.ManagedDataAccess.Client.Configuration.Section.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -75,6 +181,60 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mdi--book-education-outline %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mdi--application.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mdi--book-plus-outline.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mdi--account-student.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mdi--graph-line.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mdi--package-variant-closed-delivered.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mdi--report-bar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mdi--account.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mdi--format-list-bulleted.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mdi--book-plus-multiple-outline.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mdi--account-add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mdi--account-multiple-add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mdi--user-online %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mdi--password-reset.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mdi--logout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mdi--password-reset %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mdi--logout %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mdi--search.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
