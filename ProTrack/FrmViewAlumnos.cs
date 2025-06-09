@@ -26,11 +26,11 @@ namespace ProTrack
                         try
                         {
                             string json = datos.ToString();
-                            var estudiantes = JsonConvert.DeserializeObject<List<Dictionary<string, string>>>(json);
+                            var lista = JsonConvert.DeserializeObject<List<Dictionary<string, string>>>(json);
 
                             if (dgvEstudiantes.Columns.Count == 0)
                             {
-                                dgvEstudiantes.Columns.Add("id_estudiante", "ID Estudiante");
+                                dgvEstudiantes.Columns.Add("id_estudiante", "ID");
                                 dgvEstudiantes.Columns.Add("nombre", "Nombre");
                                 dgvEstudiantes.Columns.Add("carrera", "Carrera");
                                 dgvEstudiantes.Columns.Add("semestre", "Semestre");
@@ -39,28 +39,27 @@ namespace ProTrack
 
                             dgvEstudiantes.Rows.Clear();
 
-                            foreach (var est in estudiantes)
+                            foreach (var e in lista)
                             {
                                 dgvEstudiantes.Rows.Add(
-                                    est["id_estudiante"],
-                                    est["nombre"],
-                                    est["carrera"],
-                                    est["semestre"],
-                                    est["correo"]
+                                    e["id_estudiante"],
+                                    e["nombre"],
+                                    e["carrera"],
+                                    e["semestre"],
+                                    e["correo"]
                                 );
                             }
 
                             dgvEstudiantes.EnableHeadersVisualStyles = false;
-                            dgvEstudiantes.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(100, 130, 200);
-                            dgvEstudiantes.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 8, FontStyle.Bold);
-                            dgvEstudiantes.GridColor = Color.Black;
+                            dgvEstudiantes.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(80, 120, 180);
+                            dgvEstudiantes.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 9, FontStyle.Bold);
                         }
                         catch (Exception ex)
                         {
-                            MessageBox.Show("Error al procesar los estudiantes.\n" + ex.Message);
+                            MessageBox.Show("Error al mostrar estudiantes.\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
-                    else if (estado == "error")
+                    else
                     {
                         MessageBox.Show(datos.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
@@ -68,15 +67,26 @@ namespace ProTrack
             };
         }
 
-        public async Task CargarEstudiantes(int idProyecto)
+        public async Task CargarEstudiantes()
         {
             var solicitud = new
             {
                 accion = "listar_estudiantes",
-                id_proyecto = idProyecto
             };
 
             await ClienteWS.EnviarAsync(solicitud);
+        }
+
+        private async void FrmViewAlumnos_Load(object sender, EventArgs e)
+        {
+            if (Sesion.EsAsesor)
+            {
+                await CargarEstudiantes();
+            }
+            else if (Sesion.EsEstudiante)
+            {
+                await CargarEstudiantes();
+            }
         }
     }
 }
