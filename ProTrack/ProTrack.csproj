@@ -305,6 +305,7 @@
     <Content Include="config.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\ChatGPT Image 9 jun 2025, 02_23_08 p.m..png" />
     <None Include="Resources\mdi--user-box.png" />
     <None Include="Resources\mdi--lock-reset.png" />
     <None Include="Resources\mdi--history.png" />

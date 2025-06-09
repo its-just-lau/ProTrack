@@ -63,6 +63,16 @@ namespace ProTrack.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ChatGPT_Image_9_jun_2025__02_23_08_p_m_ {
+            get {
+                object obj = ResourceManager.GetObject("ChatGPT Image 9 jun 2025, 02_23_08 p.m.", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap mdi__academic_cap {
             get {
                 object obj = ResourceManager.GetObject("mdi--academic-cap", resourceCulture);
