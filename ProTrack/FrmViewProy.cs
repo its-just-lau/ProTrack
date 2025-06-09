@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace ProTrack
 {
@@ -18,6 +19,7 @@ namespace ProTrack
         {
             InitializeComponent();
 
+            // Suscribirse al evento de respuesta del WebSocket
             ClienteWS.AlRecibirRespuestaEstado += (estado, datos) =>
             {
                 this.Invoke((MethodInvoker)(() =>
@@ -26,7 +28,21 @@ namespace ProTrack
                     {
                         try
                         {
-                            var proyectos = JsonConvert.DeserializeObject<List<Dictionary<string, string>>>(datos);
+                            // Asegurarse de que datos es string
+                            string json = datos.ToString();
+
+                            // Deserializar lista de proyectos
+                            var proyectos = JsonConvert.DeserializeObject<List<Dictionary<string, string>>>(json);
+
+                            if (dgvProy.Columns.Count == 0)
+                            {
+                                dgvProy.Columns.Add("id_proyecto", "ID Proyecto");
+                                dgvProy.Columns.Add("nombre", "Nombre");
+                                dgvProy.Columns.Add("descripcion", "Descripción");
+                                dgvProy.Columns.Add("fecha_inicio", "Fecha Inicio");
+                                dgvProy.Columns.Add("fecha_estimada_entrega", "Fecha Estimada Entrega");
+                                dgvProy.Columns.Add("estatus", "Estatus");
+                            }
 
                             dgvProy.Rows.Clear();
 
@@ -42,18 +58,17 @@ namespace ProTrack
                                 );
                             }
                         }
-                        catch
+                        catch (Exception ex)
                         {
-                            MessageBox.Show("Error al procesar los proyectos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("Error al procesar los proyectos.\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                     else if (estado == "error")
                     {
-                        MessageBox.Show(datos, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show(datos.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }));
             };
-
         }
 
         public async Task CargarProyectosAsesor()
