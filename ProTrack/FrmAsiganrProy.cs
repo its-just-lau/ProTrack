@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace ProTrack
 {
-    public partial class FrmViewAvances : Form
+    public partial class FrmAsiganrProy : Form
     {
-        public FrmViewAvances()
+        public FrmAsiganrProy()
         {
             InitializeComponent();
         }

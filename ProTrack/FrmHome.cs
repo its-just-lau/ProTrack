@@ -13,18 +13,24 @@ namespace ProTrack
 {
     public partial class FrmHome : Form
     {
+        //Formularios
         FrmNewProy newProy;
+        FrmNewAlumno newAlu;
         FrmViewProy viewProy;
         FrmViewAlumnos viewAlumnos;
         FrmViewAsesores viewAsesores;
+        FrmAvances avances;
+        FrmEntregas entregas;
+        FrmReportes reporte1, reporte2, reporte3, reporte4;
+        FrmHistorial historial;
 
         // Estados de expansión de menús
         bool PmenuExpand = false;
         bool EmenuExpand = false;
         bool RmenuExpand = false;
         bool AmenuExpand = false;
-
-        public FrmHome()
+        bool opc;
+        public FrmHome(bool opc)
         {
             InitializeComponent();
 
@@ -37,6 +43,38 @@ namespace ProTrack
             {
                 Console.WriteLine($"Estado: {estado}, Datos: {datos}");
             };
+
+            viewHistorial();
+            this.opc = opc;
+            if ( !opc )
+            {
+                Amenu.Visible = false;
+                panAddEstu.Visible = false;
+                panAsig.Visible = false;
+                panAsignarProy.Visible = false;
+                panAvnAsesor.Visible = false;
+            }
+        }
+
+        private void viewHistorial()
+        {
+            if (historial == null)
+            {
+                historial = new FrmHistorial();
+                historial.FormClosed += viewHistorial_FormClosed;
+                historial.MdiParent = this;
+                historial.Dock = DockStyle.Fill;
+                historial.Show();
+            }
+            else
+            {
+                historial.Activate();
+            }
+        }
+
+        private void viewHistorial_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            historial = null;
         }
 
         // ----- Menú de Proyectos -----
@@ -204,7 +242,7 @@ namespace ProTrack
             if (!AmenuExpand)
             {
                 Amenu.Height += 5;
-                if (Amenu.Height >= 150)
+                if (Amenu.Height >= 100)
                 {
                     AmenuTransition.Stop();
                     AmenuExpand = true;
@@ -283,6 +321,340 @@ namespace ProTrack
         {
             FRMLogin sesionVentana = new FRMLogin();
             sesionVentana.Show();
+        }
+
+        private void btnNewEst_Click(object sender, EventArgs e)
+        {
+            if (newAlu == null)
+            {
+                newAlu = new FrmNewAlumno();
+                newAlu.FormClosed += newAlu_FormClosed;
+                newAlu.MdiParent = this;
+                newAlu.Dock = DockStyle.Fill;
+                newAlu.Show();
+            }
+            else
+            {
+                newAlu.Activate();
+            }
+        }
+
+        private void newAlu_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            newAlu = null;
+        }
+
+        private void btnAvances_Click(object sender, EventArgs e)
+        {
+            if (avances == null)
+            {
+                avances = new FrmAvances();
+                avances.FormClosed += viewAse_FormClosed;
+                avances.MdiParent = this;
+                avances.Dock = DockStyle.Fill;
+                avances.Show();
+            }
+            else
+            {
+                avances.Activate();
+            }
+        }
+
+        private void avances_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            avances = null;
+        }
+
+        private void btnAvProy_Click(object sender, EventArgs e)
+        {
+            if (reporte1 == null)
+            {
+                reporte1 = new FrmReportes(1);
+                reporte1.FormClosed += viewRep1_FormClosed;
+                reporte1.MdiParent = this;
+                reporte1.Dock = DockStyle.Fill;
+                reporte1.Show();
+            }
+            else
+            {
+                reporte1.Activate();
+            }
+        }
+
+        private void viewRep1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            reporte1 = null;
+        }
+
+        private void btnEntrProx_Click(object sender, EventArgs e)
+        {
+            if (reporte2 == null)
+            {
+                reporte2 = new FrmReportes(2);
+                reporte2.FormClosed += viewRep2_FormClosed;
+                reporte2.MdiParent = this;
+                reporte2.Dock = DockStyle.Fill;
+                reporte2.Show();
+            }
+            else
+            {
+                reporte2.Activate();
+            }
+        }
+
+        private void viewRep2_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            reporte2 = null;
+        }
+
+        private void btnNonAv_Click(object sender, EventArgs e)
+        {
+            if (reporte3 == null)
+            {
+                reporte3 = new FrmReportes(3);
+                reporte3.FormClosed += viewRep3_FormClosed;
+                reporte3.MdiParent = this;
+                reporte3.Dock = DockStyle.Fill;
+                reporte3.Show();
+            }
+            else
+            {
+                reporte3.Activate();
+            }
+        }
+
+        private void btnEntregas_Click(object sender, EventArgs e)
+        {
+            if (entregas == null)
+            {
+                entregas = new FrmEntregas();
+                entregas.FormClosed += viewEnt_FormClosed;
+                entregas.MdiParent = this;
+                entregas.Dock = DockStyle.Fill;
+                entregas.Show();
+            }
+            else
+            {
+                entregas.Activate();
+            }
+        }
+
+        private void viewEnt_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            entregas = null;
+        }
+
+        private void butProyMenu_MouseEnter(object sender, EventArgs e)
+        {
+            butProyMenu.BackColor = Color.FromArgb(100, 130, 200);
+        }
+
+        private void butProyMenu_MouseLeave(object sender, EventArgs e)
+        {
+            butProyMenu.BackColor = Color.FromArgb(35, 60, 105);
+        }
+
+        private void btnMenuEstudiantes_MouseEnter(object sender, EventArgs e)
+        {
+            btnMenuEstudiantes.BackColor = Color.FromArgb(100, 130, 200);
+        }
+
+        private void btnMenuEstudiantes_MouseLeave(object sender, EventArgs e)
+        {
+            btnMenuEstudiantes.BackColor = Color.FromArgb(35, 60, 105);
+        }
+
+        private void btnAmenu_MouseEnter(object sender, EventArgs e)
+        {
+            btnAmenu.BackColor = Color.FromArgb(100, 130, 200);
+        }
+
+        private void btnAmenu_MouseLeave(object sender, EventArgs e)
+        {
+            btnAmenu.BackColor = Color.FromArgb(35, 60, 105);
+        }
+
+        private void btnAvances_MouseEnter(object sender, EventArgs e)
+        {
+            btnAvances.BackColor = Color.FromArgb(100, 130, 200);
+        }
+
+        private void btnAvances_MouseLeave(object sender, EventArgs e)
+        {
+            btnAvances.BackColor = Color.FromArgb(35, 60, 105);
+        }
+
+        private void btnEntregas_MouseEnter(object sender, EventArgs e)
+        {
+            btnEntregas.BackColor = Color.FromArgb(100, 130, 200);
+        }
+
+        private void btnEntregas_MouseLeave(object sender, EventArgs e)
+        {
+            btnEntregas.BackColor = Color.FromArgb(35, 60, 105);
+        }
+
+        private void butRmenu_MouseEnter(object sender, EventArgs e)
+        {
+            butRmenu.BackColor = Color.FromArgb(100, 130, 200);
+        }
+
+        private void butRmenu_MouseLeave(object sender, EventArgs e)
+        {
+            butRmenu.BackColor = Color.FromArgb(35, 60, 105);
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void historialToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            viewHistorial();
+        }
+
+        private void btnviewProy_MouseEnter(object sender, EventArgs e)
+        {
+            btnviewProy.BackColor = Color.FromArgb(100, 130, 200);
+        }
+
+        private void btnviewProy_MouseLeave(object sender, EventArgs e)
+        {
+            btnviewProy.BackColor = Color.FromArgb(60, 85, 165);
+        }
+
+        private void btnNewProy_MouseEnter(object sender, EventArgs e)
+        {
+            btnNewProy.BackColor = Color.FromArgb(100, 130, 200);
+        }
+
+        private void btnNewProy_MouseLeave(object sender, EventArgs e)
+        {
+            btnNewProy.BackColor = Color.FromArgb(60, 85, 165);
+        }
+
+        private void btnViewEst_MouseEnter(object sender, EventArgs e)
+        {
+            btnViewEst.BackColor = Color.FromArgb(100, 130, 200);
+        }
+
+        private void btnViewEst_MouseLeave(object sender, EventArgs e)
+        {
+            btnViewEst.BackColor = Color.FromArgb(60, 85, 165);
+        }
+
+        private void btnAsigProy_Click(object sender, EventArgs e)
+        {
+            FrmAsiganrProy asiganrProy = new FrmAsiganrProy();
+            asiganrProy.Show();
+        }
+
+        private void btnAsigProy_MouseEnter(object sender, EventArgs e)
+        {
+            btnAsigProy.BackColor = Color.FromArgb(100, 130, 200);
+        }
+
+        private void btnAsigProy_MouseLeave(object sender, EventArgs e)
+        {
+            btnAsigProy.BackColor = Color.FromArgb(60, 85, 165);
+        }
+
+        private void btnNewEst_MouseEnter(object sender, EventArgs e)
+        {
+            btnNewEst.BackColor = Color.FromArgb(100, 130, 200);
+        }
+
+        private void btnNewEst_MouseLeave(object sender, EventArgs e)
+        {
+            btnNewEst.BackColor = Color.FromArgb(60, 85, 165);
+        }
+
+        private void btnViewAse_MouseEnter(object sender, EventArgs e)
+        {
+            btnViewAse.BackColor = Color.FromArgb(100, 130, 200);
+        }
+
+        private void btnViewAse_MouseLeave(object sender, EventArgs e)
+        {
+            btnViewAse.BackColor = Color.FromArgb(60, 85, 165);
+        }
+
+        private void btnAvAse_MouseEnter(object sender, EventArgs e)
+        {
+            btnAvAse.BackColor = Color.FromArgb(100, 130, 200);
+        }
+
+        private void btnAvAse_MouseLeave(object sender, EventArgs e)
+        {
+            btnAvAse.BackColor = Color.FromArgb(60, 85, 165);
+        }
+
+        private void btnAvProy_MouseEnter(object sender, EventArgs e)
+        {
+            btnAvProy.BackColor = Color.FromArgb(100, 130, 200);
+        }
+
+        private void btnAvProy_MouseLeave(object sender, EventArgs e)
+        {
+            btnAvProy.BackColor = Color.FromArgb(60, 85, 165);
+        }
+
+        private void btnEntrProx_MouseEnter(object sender, EventArgs e)
+        {
+            btnEntrProx.BackColor = Color.FromArgb(100, 130, 200);
+        }
+
+        private void btnEntrProx_MouseLeave(object sender, EventArgs e)
+        {
+            btnEntrProx.BackColor = Color.FromArgb(60, 85, 165);
+        }
+
+        private void btnNonAv_MouseEnter(object sender, EventArgs e)
+        {
+            btnNonAv.BackColor = Color.FromArgb(100, 130, 200);
+        }
+
+        private void btnNonAv_MouseLeave(object sender, EventArgs e)
+        {
+            btnNonAv.BackColor = Color.FromArgb(60, 85, 165);
+        }
+
+        private void cambiarContraseñaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmChangePassword changePassword = new FrmChangePassword();
+            changePassword.Show();
+        }
+
+        private void cerrarSesiónToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void viewRep3_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            reporte3 = null;
+        }
+
+        private void btnAvAse_Click(object sender, EventArgs e)
+        {
+            if (reporte4 == null)
+            {
+                reporte4 = new FrmReportes(4);
+                reporte4.FormClosed += viewRep4_FormClosed;
+                reporte4.MdiParent = this;
+                reporte4.Dock = DockStyle.Fill;
+                reporte4.Show();
+            }
+            else
+            {
+                reporte4.Activate();
+            }
+        }
+
+        private void viewRep4_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            reporte4 = null;
         }
     }
 }

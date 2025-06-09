@@ -10,21 +10,21 @@ using System.Windows.Forms;
 
 namespace ProTrack
 {
-    public partial class FrmNewAlumno : Form
+    public partial class FrmEntregas : Form
     {
-        public FrmNewAlumno()
+        public FrmEntregas()
         {
             InitializeComponent();
         }
 
-        private void FrmNewAlumno_Activated(object sender, EventArgs e)
+        private void label4_Click(object sender, EventArgs e)
         {
-            Console.WriteLine("SI ES AQUI");
+
         }
 
-        private void btnAgregar_Click(object sender, EventArgs e)
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+
         }
     }
 }

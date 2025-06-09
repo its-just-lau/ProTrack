@@ -63,6 +63,16 @@ namespace ProTrack.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap mdi__academic_cap {
+            get {
+                object obj = ResourceManager.GetObject("mdi--academic-cap", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap mdi__account {
             get {
                 object obj = ResourceManager.GetObject("mdi--account", resourceCulture);
@@ -76,6 +86,26 @@ namespace ProTrack.Properties {
         internal static System.Drawing.Bitmap mdi__account_add {
             get {
                 object obj = ResourceManager.GetObject("mdi--account-add", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap mdi__account_add__1_ {
+            get {
+                object obj = ResourceManager.GetObject("mdi--account-add (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap mdi__account_add__2_ {
+            get {
+                object obj = ResourceManager.GetObject("mdi--account-add (2)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -103,9 +133,29 @@ namespace ProTrack.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap mdi__account_tie {
+            get {
+                object obj = ResourceManager.GetObject("mdi--account-tie", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap mdi__application {
             get {
                 object obj = ResourceManager.GetObject("mdi--application", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap mdi__book_add {
+            get {
+                object obj = ResourceManager.GetObject("mdi--book-add", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -143,6 +193,16 @@ namespace ProTrack.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap mdi__drive_document {
+            get {
+                object obj = ResourceManager.GetObject("mdi--drive-document", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap mdi__format_list_bulleted {
             get {
                 object obj = ResourceManager.GetObject("mdi--format-list-bulleted", resourceCulture);
@@ -163,6 +223,26 @@ namespace ProTrack.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap mdi__history {
+            get {
+                object obj = ResourceManager.GetObject("mdi--history", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap mdi__lock_reset {
+            get {
+                object obj = ResourceManager.GetObject("mdi--lock-reset", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap mdi__logout {
             get {
                 object obj = ResourceManager.GetObject("mdi--logout", resourceCulture);
@@ -176,6 +256,16 @@ namespace ProTrack.Properties {
         internal static System.Drawing.Bitmap mdi__logout__1_ {
             get {
                 object obj = ResourceManager.GetObject("mdi--logout (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap mdi__package_delivered {
+            get {
+                object obj = ResourceManager.GetObject("mdi--package-delivered", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -223,9 +313,29 @@ namespace ProTrack.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap mdi__report_box {
+            get {
+                object obj = ResourceManager.GetObject("mdi--report-box", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap mdi__search {
             get {
                 object obj = ResourceManager.GetObject("mdi--search", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap mdi__user_box {
+            get {
+                object obj = ResourceManager.GetObject("mdi--user-box", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

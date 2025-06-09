@@ -52,7 +52,7 @@
             this.labNombre.ForeColor = System.Drawing.Color.White;
             this.labNombre.Location = new System.Drawing.Point(341, 14);
             this.labNombre.Name = "labNombre";
-            this.labNombre.Size = new System.Drawing.Size(16, 15);
+            this.labNombre.Size = new System.Drawing.Size(24, 25);
             this.labNombre.TabIndex = 0;
             this.labNombre.Text = "...";
             // 
@@ -72,7 +72,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(16, 83);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 13);
+            this.label1.Size = new System.Drawing.Size(65, 20);
             this.label1.TabIndex = 2;
             this.label1.Text = "Nombre";
             // 
@@ -80,7 +80,7 @@
             // 
             this.txtNombre.Location = new System.Drawing.Point(20, 106);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(237, 20);
+            this.txtNombre.Size = new System.Drawing.Size(237, 26);
             this.txtNombre.TabIndex = 3;
             // 
             // txtDesc
@@ -96,7 +96,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(16, 146);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(63, 13);
+            this.label2.Size = new System.Drawing.Size(92, 20);
             this.label2.TabIndex = 4;
             this.label2.Text = "Descripción";
             // 
@@ -104,7 +104,7 @@
             // 
             this.dtpInicio.Location = new System.Drawing.Point(20, 316);
             this.dtpInicio.Name = "dtpInicio";
-            this.dtpInicio.Size = new System.Drawing.Size(200, 20);
+            this.dtpInicio.Size = new System.Drawing.Size(200, 26);
             this.dtpInicio.TabIndex = 6;
             // 
             // label3
@@ -112,7 +112,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(16, 293);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(32, 13);
+            this.label3.Size = new System.Drawing.Size(46, 20);
             this.label3.TabIndex = 7;
             this.label3.Text = "Inicio";
             // 
@@ -121,7 +121,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(243, 293);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(89, 13);
+            this.label4.Size = new System.Drawing.Size(135, 20);
             this.label4.TabIndex = 9;
             this.label4.Text = "Entrega estimada";
             // 
@@ -129,7 +129,7 @@
             // 
             this.dtpEntrega.Location = new System.Drawing.Point(247, 316);
             this.dtpEntrega.Name = "dtpEntrega";
-            this.dtpEntrega.Size = new System.Drawing.Size(200, 20);
+            this.dtpEntrega.Size = new System.Drawing.Size(200, 26);
             this.dtpEntrega.TabIndex = 8;
             // 
             // label6
@@ -137,7 +137,7 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(512, 146);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(42, 13);
+            this.label6.Size = new System.Drawing.Size(64, 20);
             this.label6.TabIndex = 13;
             this.label6.Text = "Estatus";
             // 
@@ -149,7 +149,7 @@
             "Incompleto"});
             this.cbxEstatus.Location = new System.Drawing.Point(515, 169);
             this.cbxEstatus.Name = "cbxEstatus";
-            this.cbxEstatus.Size = new System.Drawing.Size(170, 21);
+            this.cbxEstatus.Size = new System.Drawing.Size(170, 28);
             this.cbxEstatus.TabIndex = 12;
             // 
             // button1
@@ -174,6 +174,7 @@
             // FrmNewProy
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(235)))), ((int)(((byte)(245)))));
             this.ClientSize = new System.Drawing.Size(719, 400);
             this.Controls.Add(this.btnAgregarProy);
             this.Controls.Add(this.button1);

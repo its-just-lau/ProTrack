@@ -21,7 +21,7 @@ namespace ProTrack
         {
             InitializeComponent();
 
-
+            txtUsuario.Focus();
             ClienteWS.AlRecibirRespuestaEstado += (estado, datos) =>
             {
                 // Solo chequeamos estado "login_ok", "login_fail" o "login_error" para el login
@@ -63,6 +63,24 @@ namespace ProTrack
                             }
 
                             MessageBox.Show("Inicio de sesión exitoso", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            if (Sesion.Rol == "ASESOR")
+                            {
+                                // Mostrar menú principal para asesor
+                                FrmHome home = new FrmHome(true);
+                                home.Show();
+                                this.Hide();
+                            }
+                            else if (Sesion.Rol == "ESTUDIANTE")
+                            {
+                                // Mostrar menú principal para estudiante
+                                FrmHome home = new FrmHome(false);
+                                home.Show();
+                                this.Hide();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Rol no reconocido: " + Sesion.Rol, "Acceso denegado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            }
 
                             // Aquí abre el formulario principal o cierra el login, etc.
                         }
@@ -95,12 +113,42 @@ namespace ProTrack
                 datos = new
                 {
                     usuario = txtUsuario.Text.Trim(),
-                    contrasena = txtContrasena.Text.Trim()
+                    contrasena = txtContraseña.Text.Trim()
                 }
             };
 
             await ClienteWS.EnviarAsync(mensajeLogin);
 
+        }
+
+        private void label4_MouseEnter(object sender, EventArgs e)
+        {
+            label4.ForeColor = Color.FromArgb(100, 130, 200);
+        }
+
+        private void label4_MouseLeave(object sender, EventArgs e)
+        {
+            label4.ForeColor = Color.FromArgb(60, 85, 165);
+        }
+
+        private void chBoxMostrar_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chBoxMostrar.Checked)
+            {
+                txtContraseña.PasswordChar = '\0';
+            }
+            else
+            {
+                txtContraseña.PasswordChar = '•';
+            }
+        }
+
+        public void Clear()
+        {
+            txtUsuario.Text = "";
+            txtContraseña.Text = "";
+            txtUsuario.Focus();
+            chBoxMostrar.Checked = false;
         }
     }
 }

@@ -118,20 +118,11 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="mdi--format-list-bulleted" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\mdi--format-list-bulleted.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="mdi--application" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\mdi--application.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="mdi--account" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\mdi--account.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="mdi--book-add" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mdi--book-add.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="mdi--book-plus-outline" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\mdi--book-plus-outline.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="mdi--account-student" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\mdi--account-student.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="mdi--graph-line" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\mdi--graph-line.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -139,37 +130,79 @@
   <data name="mdi--logout (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\mdi--logout (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="mdi--password-reset" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\mdi--password-reset.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="mdi--account-add (2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mdi--account-add (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="mdi--history" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mdi--history.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="mdi--account-student" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mdi--account-student.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="mdi--application" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mdi--application.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="mdi--book-plus-multiple-outline" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\mdi--book-plus-multiple-outline.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="mdi--user-online (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\mdi--user-online (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="mdi--lock-reset" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mdi--lock-reset.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="mdi--book-education-outline (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\mdi--book-education-outline (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="mdi--account-multiple-add" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\mdi--account-multiple-add.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="mdi--password-reset (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\mdi--password-reset (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="mdi--account-add" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\mdi--account-add.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="mdi--report-bar" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\mdi--report-bar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="mdi--account-tie" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mdi--account-tie.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="mdi--logout" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\mdi--logout.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="mdi--package-variant-closed-delivered" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\mdi--package-variant-closed-delivered.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="mdi--academic-cap" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mdi--academic-cap.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="mdi--format-list-bulleted" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mdi--format-list-bulleted.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="mdi--account" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mdi--account.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="mdi--book-education-outline (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mdi--book-education-outline (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="mdi--report-box" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mdi--report-box.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="mdi--account-add" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mdi--account-add.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="mdi--password-reset" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mdi--password-reset.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="mdi--drive-document" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mdi--drive-document.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="mdi--user-online (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mdi--user-online (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="mdi--account-multiple-add" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mdi--account-multiple-add.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="mdi--report-bar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mdi--report-bar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="mdi--package-delivered" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mdi--package-delivered.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="mdi--search" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\mdi--search.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="mdi--package-variant-closed-delivered" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mdi--package-variant-closed-delivered.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="mdi--account-add (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mdi--account-add (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="mdi--password-reset (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mdi--password-reset (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="mdi--user-box" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mdi--user-box.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

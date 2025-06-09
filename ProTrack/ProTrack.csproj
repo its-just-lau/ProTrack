@@ -100,6 +100,36 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmAsiganrProy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAsiganrProy.Designer.cs">
+      <DependentUpon>FrmAsiganrProy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAvances.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAvances.Designer.cs">
+      <DependentUpon>FrmAvances.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmChangePassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmChangePassword.Designer.cs">
+      <DependentUpon>FrmChangePassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmEntregas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmEntregas.Designer.cs">
+      <DependentUpon>FrmEntregas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmHistorial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmHistorial.Designer.cs">
+      <DependentUpon>FrmHistorial.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmHome.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,11 +142,23 @@
     <Compile Include="FrmNewAlumno.Designer.cs">
       <DependentUpon>FrmNewAlumno.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmNewAsesor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmNewAsesor.Designer.cs">
+      <DependentUpon>FrmNewAsesor.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmNewProy.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmNewProy.Designer.cs">
       <DependentUpon>FrmNewProy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmReportes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmReportes.Designer.cs">
+      <DependentUpon>FrmReportes.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmViewAlumnos.cs">
       <SubType>Form</SubType>
@@ -129,12 +171,6 @@
     </Compile>
     <Compile Include="FrmViewAsesores.Designer.cs">
       <DependentUpon>FrmViewAsesores.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmViewAvances.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmViewAvances.Designer.cs">
-      <DependentUpon>FrmViewAvances.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmViewProy.cs">
       <SubType>Form</SubType>
@@ -151,11 +187,35 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmAsiganrProy.resx">
+      <DependentUpon>FrmAsiganrProy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAvances.resx">
+      <DependentUpon>FrmAvances.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmChangePassword.resx">
+      <DependentUpon>FrmChangePassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmEntregas.resx">
+      <DependentUpon>FrmEntregas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmHistorial.resx">
+      <DependentUpon>FrmHistorial.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmHome.resx">
       <DependentUpon>FrmHome.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmNewAlumno.resx">
+      <DependentUpon>FrmNewAlumno.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmNewAsesor.resx">
+      <DependentUpon>FrmNewAsesor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmNewProy.resx">
       <DependentUpon>FrmNewProy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmReportes.resx">
+      <DependentUpon>FrmReportes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmViewAlumnos.resx">
       <DependentUpon>FrmViewAlumnos.cs</DependentUpon>
@@ -254,6 +314,17 @@
     <Content Include="config.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\mdi--user-box.png" />
+    <None Include="Resources\mdi--lock-reset.png" />
+    <None Include="Resources\mdi--history.png" />
+    <None Include="Resources\mdi--package-delivered.png" />
+    <None Include="Resources\mdi--report-box.png" />
+    <None Include="Resources\mdi--drive-document.png" />
+    <None Include="Resources\mdi--account-tie.png" />
+    <None Include="Resources\mdi--academic-cap.png" />
+    <None Include="Resources\mdi--book-add.png" />
+    <None Include="Resources\mdi--account-add %282%29.png" />
+    <None Include="Resources\mdi--account-add %281%29.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
