@@ -62,8 +62,6 @@
             this.btnEntrProx = new System.Windows.Forms.Button();
             this.panel14 = new System.Windows.Forms.Panel();
             this.btnNonAv = new System.Windows.Forms.Button();
-            this.panAvnAsesor = new System.Windows.Forms.Panel();
-            this.btnAvAse = new System.Windows.Forms.Button();
             this.RmenuTransition = new System.Windows.Forms.Timer(this.components);
             this.panel19 = new System.Windows.Forms.Panel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -88,7 +86,6 @@
             this.panel12.SuspendLayout();
             this.panel13.SuspendLayout();
             this.panel14.SuspendLayout();
-            this.panAvnAsesor.SuspendLayout();
             this.panel19.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -440,7 +437,6 @@
             this.Rmenu.Controls.Add(this.panel12);
             this.Rmenu.Controls.Add(this.panel13);
             this.Rmenu.Controls.Add(this.panel14);
-            this.Rmenu.Controls.Add(this.panAvnAsesor);
             this.Rmenu.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Rmenu.Location = new System.Drawing.Point(3, 309);
             this.Rmenu.Name = "Rmenu";
@@ -530,34 +526,6 @@
             this.btnNonAv.Click += new System.EventHandler(this.btnNonAv_Click);
             this.btnNonAv.MouseEnter += new System.EventHandler(this.btnNonAv_MouseEnter);
             this.btnNonAv.MouseLeave += new System.EventHandler(this.btnNonAv_MouseLeave);
-            // 
-            // panAvnAsesor
-            // 
-            this.panAvnAsesor.Controls.Add(this.btnAvAse);
-            this.panAvnAsesor.Location = new System.Drawing.Point(0, 200);
-            this.panAvnAsesor.Margin = new System.Windows.Forms.Padding(0);
-            this.panAvnAsesor.Name = "panAvnAsesor";
-            this.panAvnAsesor.Size = new System.Drawing.Size(250, 50);
-            this.panAvnAsesor.TabIndex = 11;
-            // 
-            // btnAvAse
-            // 
-            this.btnAvAse.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(85)))), ((int)(((byte)(165)))));
-            this.btnAvAse.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAvAse.ForeColor = System.Drawing.Color.White;
-            this.btnAvAse.Image = global::ProTrack.Properties.Resources.mdi__report_bar;
-            this.btnAvAse.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAvAse.Location = new System.Drawing.Point(-19, -27);
-            this.btnAvAse.Name = "btnAvAse";
-            this.btnAvAse.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.btnAvAse.Size = new System.Drawing.Size(291, 102);
-            this.btnAvAse.TabIndex = 3;
-            this.btnAvAse.Text = "            Avance por asesor";
-            this.btnAvAse.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAvAse.UseVisualStyleBackColor = false;
-            this.btnAvAse.Click += new System.EventHandler(this.btnAvAse_Click);
-            this.btnAvAse.MouseEnter += new System.EventHandler(this.btnAvAse_MouseEnter);
-            this.btnAvAse.MouseLeave += new System.EventHandler(this.btnAvAse_MouseLeave);
             // 
             // RmenuTransition
             // 
@@ -653,7 +621,6 @@
             this.panel12.ResumeLayout(false);
             this.panel13.ResumeLayout(false);
             this.panel14.ResumeLayout(false);
-            this.panAvnAsesor.ResumeLayout(false);
             this.panel19.ResumeLayout(false);
             this.panel19.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
@@ -694,8 +661,6 @@
         private System.Windows.Forms.Button btnEntrProx;
         private System.Windows.Forms.Panel panel14;
         private System.Windows.Forms.Button btnNonAv;
-        private System.Windows.Forms.Panel panAvnAsesor;
-        private System.Windows.Forms.Button btnAvAse;
         private System.Windows.Forms.Timer RmenuTransition;
         private System.Windows.Forms.Panel panAddEstu;
         private System.Windows.Forms.Button btnNewEst;

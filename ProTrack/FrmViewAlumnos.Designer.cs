@@ -30,10 +30,10 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.dgvAlu = new System.Windows.Forms.DataGridView();
+            this.dgvEstudiantes = new System.Windows.Forms.DataGridView();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvAlu)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEstudiantes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -54,15 +54,15 @@
             this.textBox1.Size = new System.Drawing.Size(366, 26);
             this.textBox1.TabIndex = 5;
             // 
-            // dgvAlu
+            // dgvEstudiantes
             // 
-            this.dgvAlu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAlu.Location = new System.Drawing.Point(6, 78);
-            this.dgvAlu.Name = "dgvAlu";
-            this.dgvAlu.RowHeadersWidth = 62;
-            this.dgvAlu.RowTemplate.Height = 28;
-            this.dgvAlu.Size = new System.Drawing.Size(1020, 591);
-            this.dgvAlu.TabIndex = 4;
+            this.dgvEstudiantes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvEstudiantes.Location = new System.Drawing.Point(6, 78);
+            this.dgvEstudiantes.Name = "dgvEstudiantes";
+            this.dgvEstudiantes.RowHeadersWidth = 62;
+            this.dgvEstudiantes.RowTemplate.Height = 28;
+            this.dgvEstudiantes.Size = new System.Drawing.Size(1020, 591);
+            this.dgvEstudiantes.TabIndex = 4;
             // 
             // pictureBox2
             // 
@@ -94,11 +94,11 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.dgvAlu);
+            this.Controls.Add(this.dgvEstudiantes);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmViewAlumnos";
             this.Text = "FrmViewAlumnos";
-            ((System.ComponentModel.ISupportInitialize)(this.dgvAlu)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEstudiantes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -111,7 +111,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.DataGridView dgvAlu;
+        private System.Windows.Forms.DataGridView dgvEstudiantes;
         private System.Windows.Forms.PictureBox pictureBox2;
     }
 }

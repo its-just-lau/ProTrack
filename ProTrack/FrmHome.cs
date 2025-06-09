@@ -20,7 +20,7 @@ namespace ProTrack
         FrmViewAlumnos viewAlumnos;
         FrmAvances avances;
         FrmEntregas entregas;
-        FrmReportes reporte1, reporte2, reporte3, reporte4;
+        FrmReportes reporte1, reporte2, reporte3;
         FrmHistorial historial;
 
         // Estados de expansión de menús
@@ -49,7 +49,6 @@ namespace ProTrack
                 panAddEstu.Visible = false;
                 panAsig.Visible = false;
                 panAsignarProy.Visible = false;
-                panAvnAsesor.Visible = false;
             }
         }
 
@@ -82,10 +81,19 @@ namespace ProTrack
 
         private void PmenuTransition_Tick(object sender, EventArgs e)
         {
+            int tam;
+            if (opc)
+            {
+                tam = 150;
+            }
+            else
+            {
+                tam = 100;
+            }
             if (!PmenuExpand)
             {
                 ProyMenu.Height += 5;
-                if (ProyMenu.Height >= 150)
+                if (ProyMenu.Height >= tam)
                 {
                     PmenuTransition.Stop();
                     PmenuExpand = true;
@@ -159,6 +167,16 @@ namespace ProTrack
 
         private void EmenuTransition_Tick(object sender, EventArgs e)
         {
+            int tam;
+            if (opc)
+            {
+                tam = 200;
+            }
+            else
+            {
+                tam = 100;
+            }
+
             if (!EmenuExpand)
             {
                 Emenu.Height += 5;
@@ -211,7 +229,7 @@ namespace ProTrack
             if (!RmenuExpand)
             {
                 Rmenu.Height += 5;
-                if (Rmenu.Height >= 250)
+                if (Rmenu.Height >= 200)
                 {
                     RmenuTransition.Stop();
                     RmenuExpand = true;
@@ -510,15 +528,6 @@ namespace ProTrack
             btnNewEst.BackColor = Color.FromArgb(60, 85, 165);
         }
 
-        private void btnAvAse_MouseEnter(object sender, EventArgs e)
-        {
-            btnAvAse.BackColor = Color.FromArgb(100, 130, 200);
-        }
-
-        private void btnAvAse_MouseLeave(object sender, EventArgs e)
-        {
-            btnAvAse.BackColor = Color.FromArgb(60, 85, 165);
-        }
 
         private void btnAvProy_MouseEnter(object sender, EventArgs e)
         {
@@ -566,25 +575,5 @@ namespace ProTrack
             reporte3 = null;
         }
 
-        private void btnAvAse_Click(object sender, EventArgs e)
-        {
-            if (reporte4 == null)
-            {
-                reporte4 = new FrmReportes(4);
-                reporte4.FormClosed += viewRep4_FormClosed;
-                reporte4.MdiParent = this;
-                reporte4.Dock = DockStyle.Fill;
-                reporte4.Show();
-            }
-            else
-            {
-                reporte4.Activate();
-            }
-        }
-
-        private void viewRep4_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            reporte4 = null;
-        }
     }
 }
