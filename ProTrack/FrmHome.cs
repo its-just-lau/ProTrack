@@ -54,6 +54,7 @@ namespace ProTrack
 
         private void viewHistorial()
         {
+            CerrarFormsHijos();
             if (historial == null)
             {
                 historial = new FrmHistorial();
@@ -118,6 +119,7 @@ namespace ProTrack
             //    MessageBox.Show("No tienes permiso para crear proyectos.", "Acceso denegado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             //    return;
             //}
+            CerrarFormsHijos();
 
             if (newProy == null)
             {
@@ -140,6 +142,7 @@ namespace ProTrack
 
         private void btnviewProy_Click(object sender, EventArgs e)
         {
+            CerrarFormsHijos();
             if (viewProy == null)
             {
                 viewProy = new FrmViewProy();
@@ -199,6 +202,7 @@ namespace ProTrack
 
         private void btnViewEst_Click(object sender, EventArgs e)
         {
+            CerrarFormsHijos();
             if (viewAlumnos == null)
             {
                 viewAlumnos = new FrmViewAlumnos();
@@ -284,14 +288,15 @@ namespace ProTrack
             //await ClienteWS.DesconectarAsync();
         }
 
-        private void btnIniciarSesion_Click(object sender, EventArgs e)
-        {
-            FRMLogin sesionVentana = new FRMLogin();
-            sesionVentana.Show();
-        }
+        //private void btnIniciarSesion_Click(object sender, EventArgs e)
+        //{
+        //    FRMLogin sesionVentana = new FRMLogin();
+        //    sesionVentana.Show();
+        //}
 
         private void btnNewEst_Click(object sender, EventArgs e)
         {
+            CerrarFormsHijos();
             if (newAlu == null)
             {
                 newAlu = new FrmNewAlumno();
@@ -313,6 +318,7 @@ namespace ProTrack
 
         private void btnAvances_Click(object sender, EventArgs e)
         {
+            CerrarFormsHijos();
             if (avances == null)
             {
                 avances = new FrmAvances();
@@ -334,6 +340,7 @@ namespace ProTrack
 
         private void btnAvProy_Click(object sender, EventArgs e)
         {
+            CerrarFormsHijos();
             if (reporte1 == null)
             {
                 reporte1 = new FrmReportes(1);
@@ -355,6 +362,7 @@ namespace ProTrack
 
         private void btnEntrProx_Click(object sender, EventArgs e)
         {
+            CerrarFormsHijos();
             if (reporte2 == null)
             {
                 reporte2 = new FrmReportes(2);
@@ -376,6 +384,7 @@ namespace ProTrack
 
         private void btnNonAv_Click(object sender, EventArgs e)
         {
+            CerrarFormsHijos();
             if (reporte3 == null)
             {
                 reporte3 = new FrmReportes(3);
@@ -392,6 +401,7 @@ namespace ProTrack
 
         private void btnEntregas_Click(object sender, EventArgs e)
         {
+            CerrarFormsHijos();
             if (entregas == null)
             {
                 entregas = new FrmEntregas();
@@ -574,6 +584,27 @@ namespace ProTrack
         {
             reporte3 = null;
         }
+
+        private void CerrarFormsHijos()
+        {
+            foreach (Form child in this.MdiChildren)
+            {
+                child.Close();
+            }
+
+            // También limpia las referencias, por si quieres reusarlas
+            newProy = null;
+            newAlu = null;
+            viewProy = null;
+            viewAlumnos = null;
+            avances = null;
+            entregas = null;
+            reporte1 = null;
+            reporte2 = null;
+            reporte3 = null;
+            historial = null;
+        }
+
 
     }
 }
