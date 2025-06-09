@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ProTrack;
 
 namespace ProTrack
 {
@@ -26,6 +27,16 @@ namespace ProTrack
         public FrmHome()
         {
             InitializeComponent();
+
+            ClienteWS.AlRecibirMensaje += (msg) =>
+            {
+                Console.WriteLine("Mensaje recibido: " + msg);
+            };
+
+            ClienteWS.AlRecibirRespuestaEstado += (estado, datos) =>
+            {
+                Console.WriteLine($"Estado: {estado}, Datos: {datos}");
+            };
         }
 
         // ----- Menú de Proyectos -----
@@ -58,6 +69,13 @@ namespace ProTrack
 
         private void btnNewProy_Click(object sender, EventArgs e)
         {
+            // Lo comento pq si no tienen acceso a la base de datos, no pueden meterse jajksdjaskjdjasd
+            //if (!Sesion.EsAsesor)
+            //{
+            //    MessageBox.Show("No tienes permiso para crear proyectos.", "Acceso denegado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //    return;
+            //}
+
             if (newProy == null)
             {
                 newProy = new FrmNewProy();
@@ -222,6 +240,49 @@ namespace ProTrack
         private void viewAse_FormClosed(object sender, FormClosedEventArgs e)
         {
             viewAsesores = null;
+        }
+
+        private async void button3_Click(object sender, EventArgs e) // Boton Conectar
+        {
+            try
+            {
+                Config.Cargar(); // Carga IP, puerto, usuario, contraseña
+
+                string url = $"ws://{Config.IP}:{Config.Puerto}";
+                bool conectado = await ClienteWS.Conectar(url);
+
+
+                if (conectado)
+                {
+                    MessageBox.Show("Conexión establecida con éxito", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    // Aquí puedes habilitar botones de login, navegación, etc.
+                }
+
+                //ClienteWS.AlRecibirMensaje += ProcesarMensajeDelServidor;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al conectar: {ex.Message}");
+            }
+
+        }
+
+        private void btnConfig_Click(object sender, EventArgs e)
+        {
+            Configuracion config = new Configuracion();
+            config.Show(); 
+        }
+
+        private async void FrmHome_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            await ClienteWS.DesconectarAsync();
+        }
+
+        private void btnIniciarSesion_Click(object sender, EventArgs e)
+        {
+            FRMLogin sesionVentana = new FRMLogin();
+            sesionVentana.Show();
         }
     }
 }

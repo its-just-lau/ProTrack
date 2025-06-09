@@ -31,53 +31,56 @@
             this.components = new System.ComponentModel.Container();
             this.ProyMenu = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.butProyMenu = new System.Windows.Forms.Button();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.btnviewProy = new System.Windows.Forms.Button();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.btnNewProy = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.btnAmenu = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.button4 = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.button5 = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.butRmenu = new System.Windows.Forms.Button();
             this.PmenuTransition = new System.Windows.Forms.Timer(this.components);
             this.Emenu = new System.Windows.Forms.FlowLayoutPanel();
             this.panel9 = new System.Windows.Forms.Panel();
+            this.btnViewEst = new System.Windows.Forms.Button();
             this.panel10 = new System.Windows.Forms.Panel();
+            this.btnAsigProy = new System.Windows.Forms.Button();
             this.panel18 = new System.Windows.Forms.Panel();
+            this.btnNewEst = new System.Windows.Forms.Button();
             this.EmenuTransition = new System.Windows.Forms.Timer(this.components);
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel11 = new System.Windows.Forms.Panel();
             this.Amenu = new System.Windows.Forms.FlowLayoutPanel();
             this.panel16 = new System.Windows.Forms.Panel();
+            this.btnViewAse = new System.Windows.Forms.Button();
             this.panel17 = new System.Windows.Forms.Panel();
+            this.btnNewAse = new System.Windows.Forms.Button();
             this.Rmenu = new System.Windows.Forms.FlowLayoutPanel();
             this.panel12 = new System.Windows.Forms.Panel();
+            this.button10 = new System.Windows.Forms.Button();
             this.panel13 = new System.Windows.Forms.Panel();
+            this.button11 = new System.Windows.Forms.Button();
             this.panel14 = new System.Windows.Forms.Panel();
+            this.button12 = new System.Windows.Forms.Button();
             this.panel15 = new System.Windows.Forms.Panel();
+            this.button13 = new System.Windows.Forms.Button();
             this.RmenuTransition = new System.Windows.Forms.Timer(this.components);
             this.AmenuTransition = new System.Windows.Forms.Timer(this.components);
             this.panel19 = new System.Windows.Forms.Panel();
+            this.btnConectar = new System.Windows.Forms.Button();
+            this.btnConfig = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.userMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.cambiarContraseñaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cerrarSesiónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.butProyMenu = new System.Windows.Forms.Button();
-            this.btnviewProy = new System.Windows.Forms.Button();
-            this.btnNewProy = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.btnViewEst = new System.Windows.Forms.Button();
-            this.btnAsigProy = new System.Windows.Forms.Button();
-            this.btnNewEst = new System.Windows.Forms.Button();
-            this.btnAmenu = new System.Windows.Forms.Button();
-            this.btnViewAse = new System.Windows.Forms.Button();
-            this.btnNewAse = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.butRmenu = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
-            this.button11 = new System.Windows.Forms.Button();
-            this.button12 = new System.Windows.Forms.Button();
-            this.button13 = new System.Windows.Forms.Button();
+            this.btnIniciarSesion = new System.Windows.Forms.Button();
             this.ProyMenu.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel7.SuspendLayout();
@@ -124,6 +127,23 @@
             this.panel1.Size = new System.Drawing.Size(250, 50);
             this.panel1.TabIndex = 2;
             // 
+            // butProyMenu
+            // 
+            this.butProyMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(60)))), ((int)(((byte)(105)))));
+            this.butProyMenu.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.butProyMenu.ForeColor = System.Drawing.Color.White;
+            this.butProyMenu.Image = global::ProTrack.Properties.Resources.mdi__book_education_outline__1_;
+            this.butProyMenu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.butProyMenu.Location = new System.Drawing.Point(-19, -27);
+            this.butProyMenu.Name = "butProyMenu";
+            this.butProyMenu.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
+            this.butProyMenu.Size = new System.Drawing.Size(291, 102);
+            this.butProyMenu.TabIndex = 3;
+            this.butProyMenu.Text = "            Proyectos";
+            this.butProyMenu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.butProyMenu.UseVisualStyleBackColor = false;
+            this.butProyMenu.Click += new System.EventHandler(this.butProyMenu_Click);
+            // 
             // panel7
             // 
             this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(85)))), ((int)(((byte)(165)))));
@@ -133,6 +153,23 @@
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(250, 50);
             this.panel7.TabIndex = 4;
+            // 
+            // btnviewProy
+            // 
+            this.btnviewProy.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(85)))), ((int)(((byte)(165)))));
+            this.btnviewProy.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnviewProy.ForeColor = System.Drawing.Color.White;
+            this.btnviewProy.Image = global::ProTrack.Properties.Resources.mdi__application;
+            this.btnviewProy.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnviewProy.Location = new System.Drawing.Point(-19, -27);
+            this.btnviewProy.Name = "btnviewProy";
+            this.btnviewProy.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
+            this.btnviewProy.Size = new System.Drawing.Size(291, 102);
+            this.btnviewProy.TabIndex = 3;
+            this.btnviewProy.Text = "            Ver proyectos";
+            this.btnviewProy.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnviewProy.UseVisualStyleBackColor = false;
+            this.btnviewProy.Click += new System.EventHandler(this.btnviewProy_Click);
             // 
             // panel8
             // 
@@ -144,6 +181,23 @@
             this.panel8.Size = new System.Drawing.Size(250, 50);
             this.panel8.TabIndex = 5;
             // 
+            // btnNewProy
+            // 
+            this.btnNewProy.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(85)))), ((int)(((byte)(165)))));
+            this.btnNewProy.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNewProy.ForeColor = System.Drawing.Color.White;
+            this.btnNewProy.Image = global::ProTrack.Properties.Resources.mdi__book_plus_outline;
+            this.btnNewProy.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNewProy.Location = new System.Drawing.Point(-19, -27);
+            this.btnNewProy.Name = "btnNewProy";
+            this.btnNewProy.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
+            this.btnNewProy.Size = new System.Drawing.Size(291, 102);
+            this.btnNewProy.TabIndex = 3;
+            this.btnNewProy.Text = "            Agregar nuevo";
+            this.btnNewProy.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNewProy.UseVisualStyleBackColor = false;
+            this.btnNewProy.Click += new System.EventHandler(this.btnNewProy_Click);
+            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.button2);
@@ -152,6 +206,23 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(250, 50);
             this.panel2.TabIndex = 3;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(60)))), ((int)(((byte)(105)))));
+            this.button2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.Image = global::ProTrack.Properties.Resources.mdi__account_student;
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.Location = new System.Drawing.Point(-19, -27);
+            this.button2.Name = "button2";
+            this.button2.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
+            this.button2.Size = new System.Drawing.Size(291, 102);
+            this.button2.TabIndex = 3;
+            this.button2.Text = "            Estudiantes";
+            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // panel3
             // 
@@ -162,6 +233,23 @@
             this.panel3.Size = new System.Drawing.Size(250, 50);
             this.panel3.TabIndex = 4;
             // 
+            // btnAmenu
+            // 
+            this.btnAmenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(60)))), ((int)(((byte)(105)))));
+            this.btnAmenu.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAmenu.ForeColor = System.Drawing.Color.White;
+            this.btnAmenu.Image = global::ProTrack.Properties.Resources.mdi__account;
+            this.btnAmenu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAmenu.Location = new System.Drawing.Point(-19, -27);
+            this.btnAmenu.Name = "btnAmenu";
+            this.btnAmenu.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
+            this.btnAmenu.Size = new System.Drawing.Size(291, 102);
+            this.btnAmenu.TabIndex = 3;
+            this.btnAmenu.Text = "            Asesores";
+            this.btnAmenu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAmenu.UseVisualStyleBackColor = false;
+            this.btnAmenu.Click += new System.EventHandler(this.btnAmenu_Click);
+            // 
             // panel4
             // 
             this.panel4.Controls.Add(this.button4);
@@ -169,6 +257,22 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(250, 50);
             this.panel4.TabIndex = 5;
+            // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(60)))), ((int)(((byte)(105)))));
+            this.button4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.ForeColor = System.Drawing.Color.White;
+            this.button4.Image = global::ProTrack.Properties.Resources.mdi__graph_line;
+            this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button4.Location = new System.Drawing.Point(-19, -27);
+            this.button4.Name = "button4";
+            this.button4.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
+            this.button4.Size = new System.Drawing.Size(291, 102);
+            this.button4.TabIndex = 3;
+            this.button4.Text = "            Avances";
+            this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button4.UseVisualStyleBackColor = false;
             // 
             // panel5
             // 
@@ -178,6 +282,22 @@
             this.panel5.Size = new System.Drawing.Size(250, 50);
             this.panel5.TabIndex = 6;
             // 
+            // button5
+            // 
+            this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(60)))), ((int)(((byte)(105)))));
+            this.button5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.ForeColor = System.Drawing.Color.White;
+            this.button5.Image = global::ProTrack.Properties.Resources.mdi__package_variant_closed_delivered;
+            this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button5.Location = new System.Drawing.Point(-19, -27);
+            this.button5.Name = "button5";
+            this.button5.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
+            this.button5.Size = new System.Drawing.Size(291, 102);
+            this.button5.TabIndex = 3;
+            this.button5.Text = "            Entregas";
+            this.button5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button5.UseVisualStyleBackColor = false;
+            // 
             // panel6
             // 
             this.panel6.Controls.Add(this.butRmenu);
@@ -186,6 +306,23 @@
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(250, 50);
             this.panel6.TabIndex = 7;
+            // 
+            // butRmenu
+            // 
+            this.butRmenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(60)))), ((int)(((byte)(105)))));
+            this.butRmenu.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.butRmenu.ForeColor = System.Drawing.Color.White;
+            this.butRmenu.Image = global::ProTrack.Properties.Resources.mdi__report_bar;
+            this.butRmenu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.butRmenu.Location = new System.Drawing.Point(-19, -27);
+            this.butRmenu.Name = "butRmenu";
+            this.butRmenu.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
+            this.butRmenu.Size = new System.Drawing.Size(291, 102);
+            this.butRmenu.TabIndex = 3;
+            this.butRmenu.Text = "            Reportes";
+            this.butRmenu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.butRmenu.UseVisualStyleBackColor = false;
+            this.butRmenu.Click += new System.EventHandler(this.butRmenu_Click);
             // 
             // PmenuTransition
             // 
@@ -213,6 +350,23 @@
             this.panel9.Size = new System.Drawing.Size(250, 50);
             this.panel9.TabIndex = 4;
             // 
+            // btnViewEst
+            // 
+            this.btnViewEst.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(85)))), ((int)(((byte)(165)))));
+            this.btnViewEst.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnViewEst.ForeColor = System.Drawing.Color.White;
+            this.btnViewEst.Image = global::ProTrack.Properties.Resources.mdi__format_list_bulleted;
+            this.btnViewEst.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnViewEst.Location = new System.Drawing.Point(-19, -27);
+            this.btnViewEst.Name = "btnViewEst";
+            this.btnViewEst.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
+            this.btnViewEst.Size = new System.Drawing.Size(291, 102);
+            this.btnViewEst.TabIndex = 3;
+            this.btnViewEst.Text = "            Ver estudiantes";
+            this.btnViewEst.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnViewEst.UseVisualStyleBackColor = false;
+            this.btnViewEst.Click += new System.EventHandler(this.btnViewEst_Click);
+            // 
             // panel10
             // 
             this.panel10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(85)))), ((int)(((byte)(165)))));
@@ -223,6 +377,22 @@
             this.panel10.Size = new System.Drawing.Size(250, 50);
             this.panel10.TabIndex = 5;
             // 
+            // btnAsigProy
+            // 
+            this.btnAsigProy.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(85)))), ((int)(((byte)(165)))));
+            this.btnAsigProy.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAsigProy.ForeColor = System.Drawing.Color.White;
+            this.btnAsigProy.Image = global::ProTrack.Properties.Resources.mdi__book_plus_multiple_outline;
+            this.btnAsigProy.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAsigProy.Location = new System.Drawing.Point(-19, -27);
+            this.btnAsigProy.Name = "btnAsigProy";
+            this.btnAsigProy.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
+            this.btnAsigProy.Size = new System.Drawing.Size(291, 102);
+            this.btnAsigProy.TabIndex = 3;
+            this.btnAsigProy.Text = "            Asignar proyecto";
+            this.btnAsigProy.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAsigProy.UseVisualStyleBackColor = false;
+            // 
             // panel18
             // 
             this.panel18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(85)))), ((int)(((byte)(165)))));
@@ -232,6 +402,22 @@
             this.panel18.Name = "panel18";
             this.panel18.Size = new System.Drawing.Size(250, 50);
             this.panel18.TabIndex = 6;
+            // 
+            // btnNewEst
+            // 
+            this.btnNewEst.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(85)))), ((int)(((byte)(165)))));
+            this.btnNewEst.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNewEst.ForeColor = System.Drawing.Color.White;
+            this.btnNewEst.Image = global::ProTrack.Properties.Resources.mdi__account_multiple_add;
+            this.btnNewEst.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNewEst.Location = new System.Drawing.Point(-19, -27);
+            this.btnNewEst.Name = "btnNewEst";
+            this.btnNewEst.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
+            this.btnNewEst.Size = new System.Drawing.Size(291, 102);
+            this.btnNewEst.TabIndex = 3;
+            this.btnNewEst.Text = "            Agregar";
+            this.btnNewEst.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNewEst.UseVisualStyleBackColor = false;
             // 
             // EmenuTransition
             // 
@@ -280,6 +466,23 @@
             this.panel16.Size = new System.Drawing.Size(250, 50);
             this.panel16.TabIndex = 5;
             // 
+            // btnViewAse
+            // 
+            this.btnViewAse.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(85)))), ((int)(((byte)(165)))));
+            this.btnViewAse.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnViewAse.ForeColor = System.Drawing.Color.White;
+            this.btnViewAse.Image = global::ProTrack.Properties.Resources.mdi__format_list_bulleted;
+            this.btnViewAse.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnViewAse.Location = new System.Drawing.Point(-19, -27);
+            this.btnViewAse.Name = "btnViewAse";
+            this.btnViewAse.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
+            this.btnViewAse.Size = new System.Drawing.Size(291, 102);
+            this.btnViewAse.TabIndex = 3;
+            this.btnViewAse.Text = "            Ver asesores";
+            this.btnViewAse.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnViewAse.UseVisualStyleBackColor = false;
+            this.btnViewAse.Click += new System.EventHandler(this.btnViewAse_Click);
+            // 
             // panel17
             // 
             this.panel17.Controls.Add(this.btnNewAse);
@@ -288,6 +491,22 @@
             this.panel17.Name = "panel17";
             this.panel17.Size = new System.Drawing.Size(250, 50);
             this.panel17.TabIndex = 6;
+            // 
+            // btnNewAse
+            // 
+            this.btnNewAse.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(85)))), ((int)(((byte)(165)))));
+            this.btnNewAse.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNewAse.ForeColor = System.Drawing.Color.White;
+            this.btnNewAse.Image = global::ProTrack.Properties.Resources.mdi__account_add;
+            this.btnNewAse.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNewAse.Location = new System.Drawing.Point(-19, -27);
+            this.btnNewAse.Name = "btnNewAse";
+            this.btnNewAse.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
+            this.btnNewAse.Size = new System.Drawing.Size(291, 102);
+            this.btnNewAse.TabIndex = 3;
+            this.btnNewAse.Text = "            Registrar nuevo";
+            this.btnNewAse.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNewAse.UseVisualStyleBackColor = false;
             // 
             // Rmenu
             // 
@@ -310,308 +529,6 @@
             this.panel12.Size = new System.Drawing.Size(250, 50);
             this.panel12.TabIndex = 8;
             // 
-            // panel13
-            // 
-            this.panel13.Controls.Add(this.button11);
-            this.panel13.Location = new System.Drawing.Point(0, 100);
-            this.panel13.Margin = new System.Windows.Forms.Padding(0);
-            this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(250, 50);
-            this.panel13.TabIndex = 9;
-            // 
-            // panel14
-            // 
-            this.panel14.Controls.Add(this.button12);
-            this.panel14.Location = new System.Drawing.Point(0, 150);
-            this.panel14.Margin = new System.Windows.Forms.Padding(0);
-            this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(250, 50);
-            this.panel14.TabIndex = 10;
-            // 
-            // panel15
-            // 
-            this.panel15.Controls.Add(this.button13);
-            this.panel15.Location = new System.Drawing.Point(0, 200);
-            this.panel15.Margin = new System.Windows.Forms.Padding(0);
-            this.panel15.Name = "panel15";
-            this.panel15.Size = new System.Drawing.Size(250, 50);
-            this.panel15.TabIndex = 11;
-            // 
-            // RmenuTransition
-            // 
-            this.RmenuTransition.Interval = 10;
-            this.RmenuTransition.Tick += new System.EventHandler(this.RmenuTransition_Tick);
-            // 
-            // AmenuTransition
-            // 
-            this.AmenuTransition.Interval = 10;
-            this.AmenuTransition.Tick += new System.EventHandler(this.AmenuTransition_Tick);
-            // 
-            // panel19
-            // 
-            this.panel19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(220)))), ((int)(((byte)(235)))));
-            this.panel19.Controls.Add(this.menuStrip1);
-            this.panel19.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel19.Location = new System.Drawing.Point(250, 0);
-            this.panel19.Name = "panel19";
-            this.panel19.Size = new System.Drawing.Size(697, 30);
-            this.panel19.TabIndex = 11;
-            // 
-            // menuStrip1
-            // 
-            this.menuStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(220)))), ((int)(((byte)(235)))));
-            this.menuStrip1.Dock = System.Windows.Forms.DockStyle.None;
-            this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
-            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.userMenu});
-            this.menuStrip1.Location = new System.Drawing.Point(3, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(98, 36);
-            this.menuStrip1.TabIndex = 12;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // userMenu
-            // 
-            this.userMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(220)))), ((int)(((byte)(235)))));
-            this.userMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cambiarContraseñaToolStripMenuItem,
-            this.cerrarSesiónToolStripMenuItem});
-            this.userMenu.Image = global::ProTrack.Properties.Resources.mdi__user_online__1_;
-            this.userMenu.Name = "userMenu";
-            this.userMenu.Size = new System.Drawing.Size(87, 30);
-            this.userMenu.Text = "User";
-            // 
-            // cambiarContraseñaToolStripMenuItem
-            // 
-            this.cambiarContraseñaToolStripMenuItem.Image = global::ProTrack.Properties.Resources.mdi__password_reset__1_;
-            this.cambiarContraseñaToolStripMenuItem.Name = "cambiarContraseñaToolStripMenuItem";
-            this.cambiarContraseñaToolStripMenuItem.Size = new System.Drawing.Size(271, 34);
-            this.cambiarContraseñaToolStripMenuItem.Text = "Cambiar contraseña";
-            // 
-            // cerrarSesiónToolStripMenuItem
-            // 
-            this.cerrarSesiónToolStripMenuItem.Image = global::ProTrack.Properties.Resources.mdi__logout__1_;
-            this.cerrarSesiónToolStripMenuItem.Name = "cerrarSesiónToolStripMenuItem";
-            this.cerrarSesiónToolStripMenuItem.Size = new System.Drawing.Size(271, 34);
-            this.cerrarSesiónToolStripMenuItem.Text = "Cerrar sesión";
-            // 
-            // butProyMenu
-            // 
-            this.butProyMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(60)))), ((int)(((byte)(105)))));
-            this.butProyMenu.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.butProyMenu.ForeColor = System.Drawing.Color.White;
-            this.butProyMenu.Image = global::ProTrack.Properties.Resources.mdi__book_education_outline__1_;
-            this.butProyMenu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.butProyMenu.Location = new System.Drawing.Point(-19, -27);
-            this.butProyMenu.Name = "butProyMenu";
-            this.butProyMenu.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.butProyMenu.Size = new System.Drawing.Size(291, 102);
-            this.butProyMenu.TabIndex = 3;
-            this.butProyMenu.Text = "            Proyectos";
-            this.butProyMenu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.butProyMenu.UseVisualStyleBackColor = false;
-            this.butProyMenu.Click += new System.EventHandler(this.butProyMenu_Click);
-            // 
-            // btnviewProy
-            // 
-            this.btnviewProy.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(85)))), ((int)(((byte)(165)))));
-            this.btnviewProy.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnviewProy.ForeColor = System.Drawing.Color.White;
-            this.btnviewProy.Image = global::ProTrack.Properties.Resources.mdi__application;
-            this.btnviewProy.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnviewProy.Location = new System.Drawing.Point(-19, -27);
-            this.btnviewProy.Name = "btnviewProy";
-            this.btnviewProy.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.btnviewProy.Size = new System.Drawing.Size(291, 102);
-            this.btnviewProy.TabIndex = 3;
-            this.btnviewProy.Text = "            Ver proyectos";
-            this.btnviewProy.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnviewProy.UseVisualStyleBackColor = false;
-            this.btnviewProy.Click += new System.EventHandler(this.btnviewProy_Click);
-            // 
-            // btnNewProy
-            // 
-            this.btnNewProy.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(85)))), ((int)(((byte)(165)))));
-            this.btnNewProy.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNewProy.ForeColor = System.Drawing.Color.White;
-            this.btnNewProy.Image = global::ProTrack.Properties.Resources.mdi__book_plus_outline;
-            this.btnNewProy.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNewProy.Location = new System.Drawing.Point(-19, -27);
-            this.btnNewProy.Name = "btnNewProy";
-            this.btnNewProy.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.btnNewProy.Size = new System.Drawing.Size(291, 102);
-            this.btnNewProy.TabIndex = 3;
-            this.btnNewProy.Text = "            Agregar nuevo";
-            this.btnNewProy.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNewProy.UseVisualStyleBackColor = false;
-            this.btnNewProy.Click += new System.EventHandler(this.btnNewProy_Click);
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(60)))), ((int)(((byte)(105)))));
-            this.button2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Image = global::ProTrack.Properties.Resources.mdi__account_student;
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(-19, -27);
-            this.button2.Name = "button2";
-            this.button2.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.button2.Size = new System.Drawing.Size(291, 102);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "            Estudiantes";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // btnViewEst
-            // 
-            this.btnViewEst.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(85)))), ((int)(((byte)(165)))));
-            this.btnViewEst.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnViewEst.ForeColor = System.Drawing.Color.White;
-            this.btnViewEst.Image = global::ProTrack.Properties.Resources.mdi__format_list_bulleted;
-            this.btnViewEst.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnViewEst.Location = new System.Drawing.Point(-19, -27);
-            this.btnViewEst.Name = "btnViewEst";
-            this.btnViewEst.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.btnViewEst.Size = new System.Drawing.Size(291, 102);
-            this.btnViewEst.TabIndex = 3;
-            this.btnViewEst.Text = "            Ver estudiantes";
-            this.btnViewEst.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnViewEst.UseVisualStyleBackColor = false;
-            this.btnViewEst.Click += new System.EventHandler(this.btnViewEst_Click);
-            // 
-            // btnAsigProy
-            // 
-            this.btnAsigProy.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(85)))), ((int)(((byte)(165)))));
-            this.btnAsigProy.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAsigProy.ForeColor = System.Drawing.Color.White;
-            this.btnAsigProy.Image = global::ProTrack.Properties.Resources.mdi__book_plus_multiple_outline;
-            this.btnAsigProy.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAsigProy.Location = new System.Drawing.Point(-19, -27);
-            this.btnAsigProy.Name = "btnAsigProy";
-            this.btnAsigProy.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.btnAsigProy.Size = new System.Drawing.Size(291, 102);
-            this.btnAsigProy.TabIndex = 3;
-            this.btnAsigProy.Text = "            Asignar proyecto";
-            this.btnAsigProy.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAsigProy.UseVisualStyleBackColor = false;
-            // 
-            // btnNewEst
-            // 
-            this.btnNewEst.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(85)))), ((int)(((byte)(165)))));
-            this.btnNewEst.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNewEst.ForeColor = System.Drawing.Color.White;
-            this.btnNewEst.Image = global::ProTrack.Properties.Resources.mdi__account_multiple_add;
-            this.btnNewEst.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNewEst.Location = new System.Drawing.Point(-19, -27);
-            this.btnNewEst.Name = "btnNewEst";
-            this.btnNewEst.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.btnNewEst.Size = new System.Drawing.Size(291, 102);
-            this.btnNewEst.TabIndex = 3;
-            this.btnNewEst.Text = "            Agregar";
-            this.btnNewEst.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNewEst.UseVisualStyleBackColor = false;
-            // 
-            // btnAmenu
-            // 
-            this.btnAmenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(60)))), ((int)(((byte)(105)))));
-            this.btnAmenu.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAmenu.ForeColor = System.Drawing.Color.White;
-            this.btnAmenu.Image = global::ProTrack.Properties.Resources.mdi__account;
-            this.btnAmenu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAmenu.Location = new System.Drawing.Point(-19, -27);
-            this.btnAmenu.Name = "btnAmenu";
-            this.btnAmenu.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.btnAmenu.Size = new System.Drawing.Size(291, 102);
-            this.btnAmenu.TabIndex = 3;
-            this.btnAmenu.Text = "            Asesores";
-            this.btnAmenu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAmenu.UseVisualStyleBackColor = false;
-            this.btnAmenu.Click += new System.EventHandler(this.btnAmenu_Click);
-            // 
-            // btnViewAse
-            // 
-            this.btnViewAse.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(85)))), ((int)(((byte)(165)))));
-            this.btnViewAse.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnViewAse.ForeColor = System.Drawing.Color.White;
-            this.btnViewAse.Image = global::ProTrack.Properties.Resources.mdi__format_list_bulleted;
-            this.btnViewAse.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnViewAse.Location = new System.Drawing.Point(-19, -27);
-            this.btnViewAse.Name = "btnViewAse";
-            this.btnViewAse.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.btnViewAse.Size = new System.Drawing.Size(291, 102);
-            this.btnViewAse.TabIndex = 3;
-            this.btnViewAse.Text = "            Ver asesores";
-            this.btnViewAse.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnViewAse.UseVisualStyleBackColor = false;
-            this.btnViewAse.Click += new System.EventHandler(this.btnViewAse_Click);
-            // 
-            // btnNewAse
-            // 
-            this.btnNewAse.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(85)))), ((int)(((byte)(165)))));
-            this.btnNewAse.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNewAse.ForeColor = System.Drawing.Color.White;
-            this.btnNewAse.Image = global::ProTrack.Properties.Resources.mdi__account_add;
-            this.btnNewAse.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNewAse.Location = new System.Drawing.Point(-19, -27);
-            this.btnNewAse.Name = "btnNewAse";
-            this.btnNewAse.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.btnNewAse.Size = new System.Drawing.Size(291, 102);
-            this.btnNewAse.TabIndex = 3;
-            this.btnNewAse.Text = "            Registrar nuevo";
-            this.btnNewAse.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNewAse.UseVisualStyleBackColor = false;
-            // 
-            // button4
-            // 
-            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(60)))), ((int)(((byte)(105)))));
-            this.button4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Image = global::ProTrack.Properties.Resources.mdi__graph_line;
-            this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button4.Location = new System.Drawing.Point(-19, -27);
-            this.button4.Name = "button4";
-            this.button4.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.button4.Size = new System.Drawing.Size(291, 102);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "            Avances";
-            this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button4.UseVisualStyleBackColor = false;
-            // 
-            // button5
-            // 
-            this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(60)))), ((int)(((byte)(105)))));
-            this.button5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.ForeColor = System.Drawing.Color.White;
-            this.button5.Image = global::ProTrack.Properties.Resources.mdi__package_variant_closed_delivered;
-            this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button5.Location = new System.Drawing.Point(-19, -27);
-            this.button5.Name = "button5";
-            this.button5.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.button5.Size = new System.Drawing.Size(291, 102);
-            this.button5.TabIndex = 3;
-            this.button5.Text = "            Entregas";
-            this.button5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button5.UseVisualStyleBackColor = false;
-            // 
-            // butRmenu
-            // 
-            this.butRmenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(60)))), ((int)(((byte)(105)))));
-            this.butRmenu.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.butRmenu.ForeColor = System.Drawing.Color.White;
-            this.butRmenu.Image = global::ProTrack.Properties.Resources.mdi__report_bar;
-            this.butRmenu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.butRmenu.Location = new System.Drawing.Point(-19, -27);
-            this.butRmenu.Name = "butRmenu";
-            this.butRmenu.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.butRmenu.Size = new System.Drawing.Size(291, 102);
-            this.butRmenu.TabIndex = 3;
-            this.butRmenu.Text = "            Reportes";
-            this.butRmenu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.butRmenu.UseVisualStyleBackColor = false;
-            this.butRmenu.Click += new System.EventHandler(this.butRmenu_Click);
-            // 
             // button10
             // 
             this.button10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(85)))), ((int)(((byte)(165)))));
@@ -627,6 +544,15 @@
             this.button10.Text = "            Avances por proyecto";
             this.button10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button10.UseVisualStyleBackColor = false;
+            // 
+            // panel13
+            // 
+            this.panel13.Controls.Add(this.button11);
+            this.panel13.Location = new System.Drawing.Point(0, 100);
+            this.panel13.Margin = new System.Windows.Forms.Padding(0);
+            this.panel13.Name = "panel13";
+            this.panel13.Size = new System.Drawing.Size(250, 50);
+            this.panel13.TabIndex = 9;
             // 
             // button11
             // 
@@ -644,6 +570,15 @@
             this.button11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button11.UseVisualStyleBackColor = false;
             // 
+            // panel14
+            // 
+            this.panel14.Controls.Add(this.button12);
+            this.panel14.Location = new System.Drawing.Point(0, 150);
+            this.panel14.Margin = new System.Windows.Forms.Padding(0);
+            this.panel14.Name = "panel14";
+            this.panel14.Size = new System.Drawing.Size(250, 50);
+            this.panel14.TabIndex = 10;
+            // 
             // button12
             // 
             this.button12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(85)))), ((int)(((byte)(165)))));
@@ -659,6 +594,15 @@
             this.button12.Text = "            Sin avances recientes";
             this.button12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button12.UseVisualStyleBackColor = false;
+            // 
+            // panel15
+            // 
+            this.panel15.Controls.Add(this.button13);
+            this.panel15.Location = new System.Drawing.Point(0, 200);
+            this.panel15.Margin = new System.Windows.Forms.Padding(0);
+            this.panel15.Name = "panel15";
+            this.panel15.Size = new System.Drawing.Size(250, 50);
+            this.panel15.TabIndex = 11;
             // 
             // button13
             // 
@@ -676,6 +620,97 @@
             this.button13.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button13.UseVisualStyleBackColor = false;
             // 
+            // RmenuTransition
+            // 
+            this.RmenuTransition.Interval = 10;
+            this.RmenuTransition.Tick += new System.EventHandler(this.RmenuTransition_Tick);
+            // 
+            // AmenuTransition
+            // 
+            this.AmenuTransition.Interval = 10;
+            this.AmenuTransition.Tick += new System.EventHandler(this.AmenuTransition_Tick);
+            // 
+            // panel19
+            // 
+            this.panel19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(220)))), ((int)(((byte)(235)))));
+            this.panel19.Controls.Add(this.btnIniciarSesion);
+            this.panel19.Controls.Add(this.btnConectar);
+            this.panel19.Controls.Add(this.btnConfig);
+            this.panel19.Controls.Add(this.menuStrip1);
+            this.panel19.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel19.Location = new System.Drawing.Point(250, 0);
+            this.panel19.Name = "panel19";
+            this.panel19.Size = new System.Drawing.Size(697, 30);
+            this.panel19.TabIndex = 11;
+            // 
+            // btnConectar
+            // 
+            this.btnConectar.Location = new System.Drawing.Point(233, 3);
+            this.btnConectar.Name = "btnConectar";
+            this.btnConectar.Size = new System.Drawing.Size(75, 23);
+            this.btnConectar.TabIndex = 14;
+            this.btnConectar.Text = "Conectar";
+            this.btnConectar.UseVisualStyleBackColor = true;
+            this.btnConectar.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // btnConfig
+            // 
+            this.btnConfig.Location = new System.Drawing.Point(120, 4);
+            this.btnConfig.Name = "btnConfig";
+            this.btnConfig.Size = new System.Drawing.Size(75, 23);
+            this.btnConfig.TabIndex = 13;
+            this.btnConfig.Text = "Config";
+            this.btnConfig.UseVisualStyleBackColor = true;
+            this.btnConfig.Click += new System.EventHandler(this.btnConfig_Click);
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(220)))), ((int)(((byte)(235)))));
+            this.menuStrip1.Dock = System.Windows.Forms.DockStyle.None;
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.userMenu});
+            this.menuStrip1.Location = new System.Drawing.Point(3, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(74, 32);
+            this.menuStrip1.TabIndex = 12;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // userMenu
+            // 
+            this.userMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(220)))), ((int)(((byte)(235)))));
+            this.userMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cambiarContraseñaToolStripMenuItem,
+            this.cerrarSesiónToolStripMenuItem});
+            this.userMenu.Image = global::ProTrack.Properties.Resources.mdi__user_online__1_;
+            this.userMenu.Name = "userMenu";
+            this.userMenu.Size = new System.Drawing.Size(66, 28);
+            this.userMenu.Text = "User";
+            // 
+            // cambiarContraseñaToolStripMenuItem
+            // 
+            this.cambiarContraseñaToolStripMenuItem.Image = global::ProTrack.Properties.Resources.mdi__password_reset__1_;
+            this.cambiarContraseñaToolStripMenuItem.Name = "cambiarContraseñaToolStripMenuItem";
+            this.cambiarContraseñaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cambiarContraseñaToolStripMenuItem.Text = "Cambiar contraseña";
+            // 
+            // cerrarSesiónToolStripMenuItem
+            // 
+            this.cerrarSesiónToolStripMenuItem.Image = global::ProTrack.Properties.Resources.mdi__logout__1_;
+            this.cerrarSesiónToolStripMenuItem.Name = "cerrarSesiónToolStripMenuItem";
+            this.cerrarSesiónToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cerrarSesiónToolStripMenuItem.Text = "Cerrar sesión";
+            // 
+            // btnIniciarSesion
+            // 
+            this.btnIniciarSesion.Location = new System.Drawing.Point(353, 4);
+            this.btnIniciarSesion.Name = "btnIniciarSesion";
+            this.btnIniciarSesion.Size = new System.Drawing.Size(75, 23);
+            this.btnIniciarSesion.TabIndex = 15;
+            this.btnIniciarSesion.Text = "IniciarSes";
+            this.btnIniciarSesion.UseVisualStyleBackColor = true;
+            this.btnIniciarSesion.Click += new System.EventHandler(this.btnIniciarSesion_Click);
+            // 
             // FrmHome
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -685,6 +720,7 @@
             this.IsMdiContainer = true;
             this.Name = "FrmHome";
             this.Text = "FrmHome";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmHome_FormClosing);
             this.ProyMenu.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
@@ -765,5 +801,8 @@
         private System.Windows.Forms.ToolStripMenuItem userMenu;
         private System.Windows.Forms.ToolStripMenuItem cambiarContraseñaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cerrarSesiónToolStripMenuItem;
+        private System.Windows.Forms.Button btnConectar;
+        private System.Windows.Forms.Button btnConfig;
+        private System.Windows.Forms.Button btnIniciarSesion;
     }
 }

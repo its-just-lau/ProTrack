@@ -7,14 +7,100 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Newtonsoft.Json;
+using ProTrack;
 
 namespace ProTrack
 {
     public partial class FRMLogin : Form
     {
+
+        private bool loginRealizado = false;
+
         public FRMLogin()
         {
             InitializeComponent();
+
+
+            ClienteWS.AlRecibirRespuestaEstado += (estado, datos) =>
+            {
+                // Solo chequeamos estado "login_ok", "login_fail" o "login_error" para el login
+                if (estado.StartsWith("login") && loginRealizado)
+                {
+                    // Ya inició sesión, no procesar más logins
+                    this.Invoke((MethodInvoker)(() =>
+                    {
+                        MessageBox.Show("Ya has iniciado sesión.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }));
+                    return;
+                }
+
+                if (estado.StartsWith("login"))
+                {
+                    this.Invoke((MethodInvoker)(() =>
+                    {
+                        if (estado == "login_ok")
+                        {
+                            loginRealizado = true;
+
+                            var info = JsonConvert.DeserializeObject<Dictionary<string, string>>(datos);
+
+                            if (info != null)
+                            {
+                                if (info.TryGetValue("id_usuario", out string idStr) &&
+                                    int.TryParse(idStr, out int idUsuario))
+                                {
+                                    Sesion.IdUsuario = idUsuario;
+                                }
+                                if (info.TryGetValue("nombre_usuario", out string nombreUsuario))
+                                {
+                                    Sesion.NombreUsuario = nombreUsuario;
+                                }
+                                if (info.TryGetValue("rol", out string rol))
+                                {
+                                    Sesion.Rol = rol;
+                                }
+                            }
+
+                            MessageBox.Show("Inicio de sesión exitoso", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                            // Aquí abre el formulario principal o cierra el login, etc.
+                        }
+                        else if (estado == "login_fail" || estado == "login_error")
+                        {
+                            MessageBox.Show("Credenciales inválidas", "Error de inicio de sesión", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                    }));
+                }
+                else
+                {
+                    // Aquí podrías manejar otros estados no relacionados con login si quieres
+                }
+            };
+
+
+        }
+
+        private async void button1_Click(object sender, EventArgs e)
+        {
+            if (!ClienteWS.EstaConectado)
+            {
+                MessageBox.Show("No estás conectado al servidor.");
+                return;
+            }
+
+            var mensajeLogin = new
+            {
+                accion = "login",
+                datos = new
+                {
+                    usuario = txtUsuario.Text.Trim(),
+                    contrasena = txtContrasena.Text.Trim()
+                }
+            };
+
+            await ClienteWS.EnviarAsync(mensajeLogin);
+
         }
     }
 }
