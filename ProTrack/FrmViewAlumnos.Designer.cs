@@ -41,36 +41,40 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(44, 34);
+            this.label1.Location = new System.Drawing.Point(29, 22);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(59, 20);
+            this.label1.Size = new System.Drawing.Size(40, 13);
             this.label1.TabIndex = 6;
             this.label1.Text = "Buscar";
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(109, 31);
+            this.textBox1.Location = new System.Drawing.Point(73, 20);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(366, 26);
+            this.textBox1.Size = new System.Drawing.Size(245, 20);
             this.textBox1.TabIndex = 5;
             // 
             // dgvEstudiantes
             // 
             this.dgvEstudiantes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvEstudiantes.Location = new System.Drawing.Point(6, 78);
+            this.dgvEstudiantes.Location = new System.Drawing.Point(4, 51);
+            this.dgvEstudiantes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgvEstudiantes.Name = "dgvEstudiantes";
             this.dgvEstudiantes.RowHeadersWidth = 62;
             this.dgvEstudiantes.RowTemplate.Height = 28;
-            this.dgvEstudiantes.Size = new System.Drawing.Size(1020, 591);
+            this.dgvEstudiantes.Size = new System.Drawing.Size(680, 384);
             this.dgvEstudiantes.TabIndex = 4;
             // 
             // pictureBox2
             // 
             this.pictureBox2.BackgroundImage = global::ProTrack.Properties.Resources.mdi__academic_cap;
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox2.Location = new System.Drawing.Point(954, 12);
+            this.pictureBox2.Location = new System.Drawing.Point(636, 8);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(60, 60);
+            this.pictureBox2.Size = new System.Drawing.Size(40, 39);
             this.pictureBox2.TabIndex = 15;
             this.pictureBox2.TabStop = false;
             // 
@@ -78,24 +82,26 @@
             // 
             this.pictureBox1.BackgroundImage = global::ProTrack.Properties.Resources.mdi__search;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Location = new System.Drawing.Point(8, 27);
+            this.pictureBox1.Location = new System.Drawing.Point(5, 18);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(30, 30);
+            this.pictureBox1.Size = new System.Drawing.Size(20, 20);
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
             // 
             // FrmViewAlumnos
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(235)))), ((int)(((byte)(245)))));
-            this.ClientSize = new System.Drawing.Size(1026, 621);
+            this.ClientSize = new System.Drawing.Size(684, 404);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.dgvEstudiantes);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "FrmViewAlumnos";
             this.Text = "FrmViewAlumnos";
             this.Load += new System.EventHandler(this.FrmViewAlumnos_Load);

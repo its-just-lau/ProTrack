@@ -33,6 +33,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnCargar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -42,7 +43,7 @@
             // 
             this.dgvProy.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProy.Location = new System.Drawing.Point(7, 56);
-            this.dgvProy.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvProy.Margin = new System.Windows.Forms.Padding(2);
             this.dgvProy.Name = "dgvProy";
             this.dgvProy.RowHeadersWidth = 62;
             this.dgvProy.RowTemplate.Height = 28;
@@ -52,7 +53,7 @@
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(75, 25);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(245, 20);
             this.textBox1.TabIndex = 1;
@@ -74,7 +75,7 @@
             this.pictureBox2.BackgroundImage = global::ProTrack.Properties.Resources.mdi__drive_document;
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox2.Location = new System.Drawing.Point(647, 3);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(40, 39);
             this.pictureBox2.TabIndex = 16;
@@ -85,11 +86,21 @@
             this.pictureBox1.BackgroundImage = global::ProTrack.Properties.Resources.mdi__search;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox1.Location = new System.Drawing.Point(8, 23);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(20, 20);
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
+            // 
+            // btnCargar
+            // 
+            this.btnCargar.Location = new System.Drawing.Point(502, 17);
+            this.btnCargar.Name = "btnCargar";
+            this.btnCargar.Size = new System.Drawing.Size(75, 23);
+            this.btnCargar.TabIndex = 17;
+            this.btnCargar.Text = "Cargar";
+            this.btnCargar.UseVisualStyleBackColor = true;
+            this.btnCargar.Click += new System.EventHandler(this.btnCargar_Click);
             // 
             // FrmViewProy
             // 
@@ -97,15 +108,18 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(235)))), ((int)(((byte)(245)))));
             this.ClientSize = new System.Drawing.Size(699, 440);
+            this.Controls.Add(this.btnCargar);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.dgvProy);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FrmViewProy";
             this.Text = "FrmViewProy";
+            this.Activated += new System.EventHandler(this.FrmViewProy_Activated);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmViewProy_FormClosed);
             this.Load += new System.EventHandler(this.FrmViewProy_Load);
             this.Enter += new System.EventHandler(this.FrmViewProy_Enter);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProy)).EndInit();
@@ -123,5 +137,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Button btnCargar;
     }
 }

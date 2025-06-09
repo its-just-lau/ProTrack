@@ -133,6 +133,8 @@ namespace ProTrack
             {
                 newProy.Activate();
             }
+
+
         }
 
         private void newProy_FormClosed(object sender, FormClosedEventArgs e)
@@ -143,17 +145,19 @@ namespace ProTrack
         private void btnviewProy_Click(object sender, EventArgs e)
         {
             CerrarFormsHijos();
-            if (viewProy == null)
+            if (viewProy == null || viewProy.IsDisposed)
             {
                 viewProy = new FrmViewProy();
-                viewProy.FormClosed += viewProy_FormClosed;
+                viewProy.FormClosed += (s, args) => viewProy = null;  // Limpiar referencia al cerrar
                 viewProy.MdiParent = this;
                 viewProy.Dock = DockStyle.Fill;
                 viewProy.Show();
             }
             else
             {
-                viewProy.Activate();
+                // Si ya está abierto, solo traerlo al frente
+                viewProy.BringToFront();
+                viewProy.Focus();
             }
         }
 
@@ -183,7 +187,7 @@ namespace ProTrack
             if (!EmenuExpand)
             {
                 Emenu.Height += 5;
-                if (Emenu.Height >= 200)
+                if (Emenu.Height >= tam)
                 {
                     EmenuTransition.Stop();
                     EmenuExpand = true;

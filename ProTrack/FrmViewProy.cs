@@ -20,62 +20,10 @@ namespace ProTrack
             InitializeComponent();
 
             // Suscribirse al evento de respuesta del WebSocket
-            ClienteWS.AlRecibirRespuestaEstado += (estado, datos) =>
-            {
-                this.Invoke((MethodInvoker)(() =>
-                {
-                    if (estado == "exito")
-                    {
-                        try
-                        {
-                            // Asegurarse de que datos es string
-                            string json = datos.ToString();
+            ClienteWS.AlRecibirRespuestaEstado += ClienteWS_RespuestaProyectos;
 
-                            // Deserializar lista de proyectos
-                            var proyectos = JsonConvert.DeserializeObject<List<Dictionary<string, string>>>(json);
-
-                            if (dgvProy.Columns.Count == 0)
-                            {
-                                dgvProy.Columns.Add("id_proyecto", "ID Proyecto");
-                                dgvProy.Columns.Add("nombre", "Nombre");
-                                dgvProy.Columns.Add("descripcion", "Descripción");
-                                dgvProy.Columns.Add("fecha_inicio", "Fecha Inicio");
-                                dgvProy.Columns.Add("fecha_estimada_entrega", "Fecha Estimada Entrega");
-                                dgvProy.Columns.Add("estatus", "Estatus");
-                            }
-
-                            dgvProy.Rows.Clear();
-
-                            foreach (var p in proyectos)
-                            {
-                                dgvProy.Rows.Add(
-                                    p["id_proyecto"],
-                                    p["nombre"],
-                                    p["descripcion"],
-                                    p["fecha_inicio"],
-                                    p["fecha_estimada_entrega"],
-                                    p["estatus"]
-                                );
-                            }
-
-                            dgvProy.Columns[1].Width = 153;
-                            dgvProy.EnableHeadersVisualStyles = false;
-
-                            dgvProy.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(100, 130, 200);
-                            dgvProy.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 8, FontStyle.Bold);
-                            dgvProy.GridColor = Color.Black;
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show("Error al procesar los proyectos.\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                    }
-                    else if (estado == "error")
-                    {
-                        MessageBox.Show(datos.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }));
-            };
+            // Desuscribirse cuando se cierre
+            this.FormClosed += FrmViewProy_FormClosed;
         }
 
         public async Task CargarProyectosAsesor()
@@ -113,8 +61,21 @@ namespace ProTrack
 
         }
 
-        private async void FrmViewProy_Enter(object sender, EventArgs e)
+        private void FrmViewProy_Enter(object sender, EventArgs e)
         {
+            
+        }
+
+        private void FrmViewProy_Activated(object sender, EventArgs e)
+        {
+            
+        }
+
+        private async void btnCargar_Click(object sender, EventArgs e)
+        {
+            ClienteWS.AlRecibirRespuestaEstado -= ClienteWS_RespuestaProyectos;
+            ClienteWS.AlRecibirRespuestaEstado += ClienteWS_RespuestaProyectos;
+
             if (Sesion.EsAsesor)
             {
                 await CargarProyectosAsesor();
@@ -123,6 +84,66 @@ namespace ProTrack
             {
                 await CargarProyectosAlumno();
             }
+        }
+
+        private void ClienteWS_RespuestaProyectos(string estado, object datos)
+        {
+            if (this.IsDisposed) return;
+
+            this.Invoke((MethodInvoker)(() =>
+            {
+                if (estado == "exito")
+                {
+                    try
+                    {
+                        string json = datos.ToString();
+                        var proyectos = JsonConvert.DeserializeObject<List<Dictionary<string, string>>>(json);
+
+                        if (dgvProy.Columns.Count == 0)
+                        {
+                            dgvProy.Columns.Add("id_proyecto", "ID Proyecto");
+                            dgvProy.Columns.Add("nombre", "Nombre");
+                            dgvProy.Columns.Add("descripcion", "Descripción");
+                            dgvProy.Columns.Add("fecha_inicio", "Fecha Inicio");
+                            dgvProy.Columns.Add("fecha_estimada_entrega", "Fecha Estimada Entrega");
+                            dgvProy.Columns.Add("estatus", "Estatus");
+                        }
+
+                        dgvProy.Rows.Clear();
+
+                        foreach (var p in proyectos)
+                        {
+                            dgvProy.Rows.Add(
+                                p["id_proyecto"],
+                                p["nombre"],
+                                p["descripcion"],
+                                p["fecha_inicio"],
+                                p["fecha_estimada_entrega"],
+                                p["estatus"]
+                            );
+                        }
+
+                        dgvProy.Columns[1].Width = 153;
+                        dgvProy.EnableHeadersVisualStyles = false;
+                        dgvProy.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(100, 130, 200);
+                        dgvProy.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 8, FontStyle.Bold);
+                        dgvProy.GridColor = Color.Black;
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error al procesar los proyectos.\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else if (estado == "error")
+                {
+                    MessageBox.Show(datos.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }));
+        }
+
+        private void FrmViewProy_FormClosed(object sender, FormClosedEventArgs e)
+        {
+
         }
     }
 }

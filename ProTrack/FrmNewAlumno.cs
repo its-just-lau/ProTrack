@@ -15,6 +15,22 @@ namespace ProTrack
         public FrmNewAlumno()
         {
             InitializeComponent();
+
+            ClienteWS.AlRecibirRespuestaEstado += (estado, datos) =>
+            {
+                this.Invoke((MethodInvoker)(() =>
+                {
+                    if (estado == "exito")
+                    {
+                        MessageBox.Show(datos, "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Close();
+                    }
+                    else if (estado == "error")
+                    {
+                        MessageBox.Show(datos, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }));
+            };
         }
 
         private void FrmNewAlumno_Activated(object sender, EventArgs e)
@@ -22,9 +38,35 @@ namespace ProTrack
             Console.WriteLine("SI ES AQUI");
         }
 
-        private void btnAgregar_Click(object sender, EventArgs e)
+        private async void btnAgregar_Click(object sender, EventArgs e)
         {
-            
+            // Validar que el usuario sea ADMIN o el rol que corresponda
+            if (!Sesion.EsAsesor)
+            {
+                MessageBox.Show("Solo los administradores pueden agregar estudiantes.", "Acceso denegado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Preparar el objeto con la acción y datos
+            var nuevoEstudiante = new
+            {
+                accion = "insertar_estudiante",
+                nombre_usuario = txtNombreUsuario.Text.Trim(),
+                contrasena = txtContra.Text.Trim(),
+                nombre = txtNombreReal.Text.Trim(),
+                carrera = txtCarrera.Text.Trim(),
+                semestre = int.TryParse(txtSemestre.Text.Trim(), out int sem) ? sem : 1,
+                correo = txtCorreo.Text.Trim()
+            };
+
+            try
+            {
+                await ClienteWS.EnviarAsync(nuevoEstudiante);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error enviando datos al servidor: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
