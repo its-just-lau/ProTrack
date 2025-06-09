@@ -18,7 +18,6 @@ namespace ProTrack
         FrmNewAlumno newAlu;
         FrmViewProy viewProy;
         FrmViewAlumnos viewAlumnos;
-        FrmViewAsesores viewAsesores;
         FrmAvances avances;
         FrmEntregas entregas;
         FrmReportes reporte1, reporte2, reporte3, reporte4;
@@ -28,7 +27,6 @@ namespace ProTrack
         bool PmenuExpand = false;
         bool EmenuExpand = false;
         bool RmenuExpand = false;
-        bool AmenuExpand = false;
         bool opc;
         public FrmHome(bool opc)
         {
@@ -48,7 +46,6 @@ namespace ProTrack
             this.opc = opc;
             if ( !opc )
             {
-                Amenu.Visible = false;
                 panAddEstu.Visible = false;
                 panAsig.Visible = false;
                 panAsignarProy.Visible = false;
@@ -231,90 +228,42 @@ namespace ProTrack
             }
         }
 
-        // ----- Menú de Administración -----
-        private void btnAmenu_Click(object sender, EventArgs e)
+        //private async void button3_Click(object sender, EventArgs e) // Boton Conectar
+        //{
+        //    try
+        //    {
+        //        Config.Cargar(); // Carga IP, puerto, usuario, contraseña
+
+        //        string url = $"ws://{Config.IP}:{Config.Puerto}";
+        //        bool conectado = await ClienteWS.Conectar(url);
+
+
+        //        if (conectado)
+        //        {
+        //            MessageBox.Show("Conexión establecida con éxito", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        //            // Aquí puedes habilitar botones de login, navegación, etc.
+        //        }
+
+        //        //ClienteWS.AlRecibirMensaje += ProcesarMensajeDelServidor;
+
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show($"Error al conectar: {ex.Message}");
+        //    }
+
+        //}
+
+        //private void btnConfig_Click(object sender, EventArgs e)
+        //{
+        //    Configuracion config = new Configuracion();
+        //    config.Show(); 
+        //}
+
+        private void FrmHome_FormClosing(object sender, FormClosingEventArgs e)
         {
-            AmenuTransition.Start();
-        }
-
-        private void AmenuTransition_Tick(object sender, EventArgs e)
-        {
-            if (!AmenuExpand)
-            {
-                Amenu.Height += 5;
-                if (Amenu.Height >= 100)
-                {
-                    AmenuTransition.Stop();
-                    AmenuExpand = true;
-                }
-            }
-            else
-            {
-                Amenu.Height -= 5;
-                if (Amenu.Height <= 50)
-                {
-                    AmenuTransition.Stop();
-                    AmenuExpand = false;
-                }
-            }
-        }
-
-        private void btnViewAse_Click(object sender, EventArgs e)
-        {
-            if (viewAsesores == null)
-            {
-                viewAsesores = new FrmViewAsesores();
-                viewAsesores.FormClosed += viewAse_FormClosed;
-                viewAsesores.MdiParent = this;
-                viewAsesores.Dock = DockStyle.Fill;
-                viewAsesores.Show();
-            }
-            else
-            {
-                viewAsesores.Activate();
-            }
-        }
-
-        private void viewAse_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            viewAsesores = null;
-        }
-
-        private async void button3_Click(object sender, EventArgs e) // Boton Conectar
-        {
-            try
-            {
-                Config.Cargar(); // Carga IP, puerto, usuario, contraseña
-
-                string url = $"ws://{Config.IP}:{Config.Puerto}";
-                bool conectado = await ClienteWS.Conectar(url);
-
-
-                if (conectado)
-                {
-                    MessageBox.Show("Conexión establecida con éxito", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    // Aquí puedes habilitar botones de login, navegación, etc.
-                }
-
-                //ClienteWS.AlRecibirMensaje += ProcesarMensajeDelServidor;
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error al conectar: {ex.Message}");
-            }
-
-        }
-
-        private void btnConfig_Click(object sender, EventArgs e)
-        {
-            Configuracion config = new Configuracion();
-            config.Show(); 
-        }
-
-        private async void FrmHome_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            await ClienteWS.DesconectarAsync();
+            Application.Exit();
+            //await ClienteWS.DesconectarAsync();
         }
 
         private void btnIniciarSesion_Click(object sender, EventArgs e)
@@ -349,7 +298,7 @@ namespace ProTrack
             if (avances == null)
             {
                 avances = new FrmAvances();
-                avances.FormClosed += viewAse_FormClosed;
+                avances.FormClosed += avances_FormClosed;
                 avances.MdiParent = this;
                 avances.Dock = DockStyle.Fill;
                 avances.Show();
@@ -464,15 +413,6 @@ namespace ProTrack
             btnMenuEstudiantes.BackColor = Color.FromArgb(35, 60, 105);
         }
 
-        private void btnAmenu_MouseEnter(object sender, EventArgs e)
-        {
-            btnAmenu.BackColor = Color.FromArgb(100, 130, 200);
-        }
-
-        private void btnAmenu_MouseLeave(object sender, EventArgs e)
-        {
-            btnAmenu.BackColor = Color.FromArgb(35, 60, 105);
-        }
 
         private void btnAvances_MouseEnter(object sender, EventArgs e)
         {
@@ -570,16 +510,6 @@ namespace ProTrack
             btnNewEst.BackColor = Color.FromArgb(60, 85, 165);
         }
 
-        private void btnViewAse_MouseEnter(object sender, EventArgs e)
-        {
-            btnViewAse.BackColor = Color.FromArgb(100, 130, 200);
-        }
-
-        private void btnViewAse_MouseLeave(object sender, EventArgs e)
-        {
-            btnViewAse.BackColor = Color.FromArgb(60, 85, 165);
-        }
-
         private void btnAvAse_MouseEnter(object sender, EventArgs e)
         {
             btnAvAse.BackColor = Color.FromArgb(100, 130, 200);
@@ -628,7 +558,7 @@ namespace ProTrack
 
         private void cerrarSesiónToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            Application.Restart();
         }
 
         private void viewRep3_FormClosed(object sender, FormClosedEventArgs e)

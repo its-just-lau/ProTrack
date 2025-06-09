@@ -150,5 +150,10 @@ namespace ProTrack
             txtUsuario.Focus();
             chBoxMostrar.Checked = false;
         }
+
+        private async void FRMLogin_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            await ClienteWS.DesconectarAsync();
+        }
     }
 }

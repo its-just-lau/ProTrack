@@ -173,6 +173,7 @@
             this.Controls.Add(this.txtUsuario);
             this.Name = "FRMLogin";
             this.Text = "Iniciar Sesión";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FRMLogin_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

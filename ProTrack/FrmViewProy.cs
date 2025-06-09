@@ -57,6 +57,13 @@ namespace ProTrack
                                     p["estatus"]
                                 );
                             }
+
+                            dgvProy.Columns[1].Width = 153;
+                            dgvProy.EnableHeadersVisualStyles = false;
+
+                            dgvProy.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(100, 130, 200);
+                            dgvProy.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 8, FontStyle.Bold);
+                            dgvProy.GridColor = Color.Black;
                         }
                         catch (Exception ex)
                         {
@@ -106,6 +113,11 @@ namespace ProTrack
             {
                 await CargarProyectosAlumno();
             }
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

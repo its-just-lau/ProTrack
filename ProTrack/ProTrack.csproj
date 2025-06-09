@@ -166,12 +166,6 @@
     <Compile Include="FrmViewAlumnos.Designer.cs">
       <DependentUpon>FrmViewAlumnos.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmViewAsesores.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmViewAsesores.Designer.cs">
-      <DependentUpon>FrmViewAsesores.cs</DependentUpon>
-    </Compile>
     <Compile Include="FrmViewProy.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -219,9 +213,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmViewAlumnos.resx">
       <DependentUpon>FrmViewAlumnos.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmViewAsesores.resx">
-      <DependentUpon>FrmViewAsesores.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmViewProy.resx">
       <DependentUpon>FrmViewProy.cs</DependentUpon>

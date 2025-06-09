@@ -38,8 +38,6 @@
             this.btnNewProy = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnMenuEstudiantes = new System.Windows.Forms.Button();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.btnAmenu = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.btnAvances = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -57,9 +55,6 @@
             this.EmenuTransition = new System.Windows.Forms.Timer(this.components);
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel11 = new System.Windows.Forms.Panel();
-            this.Amenu = new System.Windows.Forms.FlowLayoutPanel();
-            this.panel16 = new System.Windows.Forms.Panel();
-            this.btnViewAse = new System.Windows.Forms.Button();
             this.Rmenu = new System.Windows.Forms.FlowLayoutPanel();
             this.panel12 = new System.Windows.Forms.Panel();
             this.btnAvProy = new System.Windows.Forms.Button();
@@ -70,11 +65,7 @@
             this.panAvnAsesor = new System.Windows.Forms.Panel();
             this.btnAvAse = new System.Windows.Forms.Button();
             this.RmenuTransition = new System.Windows.Forms.Timer(this.components);
-            this.AmenuTransition = new System.Windows.Forms.Timer(this.components);
             this.panel19 = new System.Windows.Forms.Panel();
-            this.btnIniciarSesion = new System.Windows.Forms.Button();
-            this.btnConectar = new System.Windows.Forms.Button();
-            this.btnConfig = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.userMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.cambiarContraseñaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -85,7 +76,6 @@
             this.panel7.SuspendLayout();
             this.panAsignarProy.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -94,8 +84,6 @@
             this.panAsig.SuspendLayout();
             this.panAddEstu.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
-            this.Amenu.SuspendLayout();
-            this.panel16.SuspendLayout();
             this.Rmenu.SuspendLayout();
             this.panel12.SuspendLayout();
             this.panel13.SuspendLayout();
@@ -231,39 +219,11 @@
             this.btnMenuEstudiantes.MouseEnter += new System.EventHandler(this.btnMenuEstudiantes_MouseEnter);
             this.btnMenuEstudiantes.MouseLeave += new System.EventHandler(this.btnMenuEstudiantes_MouseLeave);
             // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.btnAmenu);
-            this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Margin = new System.Windows.Forms.Padding(0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(250, 50);
-            this.panel3.TabIndex = 4;
-            // 
-            // btnAmenu
-            // 
-            this.btnAmenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(60)))), ((int)(((byte)(105)))));
-            this.btnAmenu.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAmenu.ForeColor = System.Drawing.Color.White;
-            this.btnAmenu.Image = global::ProTrack.Properties.Resources.mdi__account;
-            this.btnAmenu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAmenu.Location = new System.Drawing.Point(-19, -27);
-            this.btnAmenu.Name = "btnAmenu";
-            this.btnAmenu.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.btnAmenu.Size = new System.Drawing.Size(291, 102);
-            this.btnAmenu.TabIndex = 3;
-            this.btnAmenu.Text = "            Asesores";
-            this.btnAmenu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAmenu.UseVisualStyleBackColor = false;
-            this.btnAmenu.Click += new System.EventHandler(this.btnAmenu_Click);
-            this.btnAmenu.MouseEnter += new System.EventHandler(this.btnAmenu_MouseEnter);
-            this.btnAmenu.MouseLeave += new System.EventHandler(this.btnAmenu_MouseLeave);
-            // 
             // panel4
             // 
             this.panel4.Controls.Add(this.btnAvances);
             this.panel4.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel4.Location = new System.Drawing.Point(3, 309);
+            this.panel4.Location = new System.Drawing.Point(3, 253);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(250, 50);
             this.panel4.TabIndex = 5;
@@ -291,7 +251,7 @@
             // 
             this.panel5.Controls.Add(this.btnEntregas);
             this.panel5.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel5.Location = new System.Drawing.Point(3, 253);
+            this.panel5.Location = new System.Drawing.Point(3, 197);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(250, 50);
             this.panel5.TabIndex = 6;
@@ -458,7 +418,6 @@
             this.flowLayoutPanel1.Controls.Add(this.panel11);
             this.flowLayoutPanel1.Controls.Add(this.ProyMenu);
             this.flowLayoutPanel1.Controls.Add(this.Emenu);
-            this.flowLayoutPanel1.Controls.Add(this.Amenu);
             this.flowLayoutPanel1.Controls.Add(this.panel5);
             this.flowLayoutPanel1.Controls.Add(this.panel4);
             this.flowLayoutPanel1.Controls.Add(this.Rmenu);
@@ -475,44 +434,6 @@
             this.panel11.Size = new System.Drawing.Size(247, 76);
             this.panel11.TabIndex = 0;
             // 
-            // Amenu
-            // 
-            this.Amenu.Controls.Add(this.panel3);
-            this.Amenu.Controls.Add(this.panel16);
-            this.Amenu.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Amenu.Location = new System.Drawing.Point(3, 197);
-            this.Amenu.Name = "Amenu";
-            this.Amenu.Size = new System.Drawing.Size(250, 50);
-            this.Amenu.TabIndex = 11;
-            // 
-            // panel16
-            // 
-            this.panel16.Controls.Add(this.btnViewAse);
-            this.panel16.Location = new System.Drawing.Point(0, 50);
-            this.panel16.Margin = new System.Windows.Forms.Padding(0);
-            this.panel16.Name = "panel16";
-            this.panel16.Size = new System.Drawing.Size(250, 50);
-            this.panel16.TabIndex = 5;
-            // 
-            // btnViewAse
-            // 
-            this.btnViewAse.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(85)))), ((int)(((byte)(165)))));
-            this.btnViewAse.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnViewAse.ForeColor = System.Drawing.Color.White;
-            this.btnViewAse.Image = global::ProTrack.Properties.Resources.mdi__format_list_bulleted;
-            this.btnViewAse.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnViewAse.Location = new System.Drawing.Point(-19, -27);
-            this.btnViewAse.Name = "btnViewAse";
-            this.btnViewAse.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.btnViewAse.Size = new System.Drawing.Size(291, 102);
-            this.btnViewAse.TabIndex = 3;
-            this.btnViewAse.Text = "            Ver asesores";
-            this.btnViewAse.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnViewAse.UseVisualStyleBackColor = false;
-            this.btnViewAse.Click += new System.EventHandler(this.btnViewAse_Click);
-            this.btnViewAse.MouseEnter += new System.EventHandler(this.btnViewAse_MouseEnter);
-            this.btnViewAse.MouseLeave += new System.EventHandler(this.btnViewAse_MouseLeave);
-            // 
             // Rmenu
             // 
             this.Rmenu.Controls.Add(this.panel6);
@@ -521,7 +442,7 @@
             this.Rmenu.Controls.Add(this.panel14);
             this.Rmenu.Controls.Add(this.panAvnAsesor);
             this.Rmenu.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Rmenu.Location = new System.Drawing.Point(3, 365);
+            this.Rmenu.Location = new System.Drawing.Point(3, 309);
             this.Rmenu.Name = "Rmenu";
             this.Rmenu.Size = new System.Drawing.Size(250, 50);
             this.Rmenu.TabIndex = 10;
@@ -643,53 +564,15 @@
             this.RmenuTransition.Interval = 10;
             this.RmenuTransition.Tick += new System.EventHandler(this.RmenuTransition_Tick);
             // 
-            // AmenuTransition
-            // 
-            this.AmenuTransition.Interval = 10;
-            this.AmenuTransition.Tick += new System.EventHandler(this.AmenuTransition_Tick);
-            // 
             // panel19
             // 
             this.panel19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(220)))), ((int)(((byte)(235)))));
-            this.panel19.Controls.Add(this.btnIniciarSesion);
-            this.panel19.Controls.Add(this.btnConectar);
-            this.panel19.Controls.Add(this.btnConfig);
             this.panel19.Controls.Add(this.menuStrip1);
             this.panel19.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel19.Location = new System.Drawing.Point(250, 0);
             this.panel19.Name = "panel19";
             this.panel19.Size = new System.Drawing.Size(697, 30);
             this.panel19.TabIndex = 11;
-            // 
-            // btnIniciarSesion
-            // 
-            this.btnIniciarSesion.Location = new System.Drawing.Point(472, 4);
-            this.btnIniciarSesion.Name = "btnIniciarSesion";
-            this.btnIniciarSesion.Size = new System.Drawing.Size(75, 23);
-            this.btnIniciarSesion.TabIndex = 15;
-            this.btnIniciarSesion.Text = "IniciarSes";
-            this.btnIniciarSesion.UseVisualStyleBackColor = true;
-            this.btnIniciarSesion.Click += new System.EventHandler(this.btnIniciarSesion_Click);
-            // 
-            // btnConectar
-            // 
-            this.btnConectar.Location = new System.Drawing.Point(352, 3);
-            this.btnConectar.Name = "btnConectar";
-            this.btnConectar.Size = new System.Drawing.Size(75, 23);
-            this.btnConectar.TabIndex = 14;
-            this.btnConectar.Text = "Conectar";
-            this.btnConectar.UseVisualStyleBackColor = true;
-            this.btnConectar.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // btnConfig
-            // 
-            this.btnConfig.Location = new System.Drawing.Point(239, 4);
-            this.btnConfig.Name = "btnConfig";
-            this.btnConfig.Size = new System.Drawing.Size(75, 23);
-            this.btnConfig.TabIndex = 13;
-            this.btnConfig.Text = "Config";
-            this.btnConfig.UseVisualStyleBackColor = true;
-            this.btnConfig.Click += new System.EventHandler(this.btnConfig_Click);
             // 
             // menuStrip1
             // 
@@ -758,7 +641,6 @@
             this.panel7.ResumeLayout(false);
             this.panAsignarProy.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
@@ -767,8 +649,6 @@
             this.panAsig.ResumeLayout(false);
             this.panAddEstu.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
-            this.Amenu.ResumeLayout(false);
-            this.panel16.ResumeLayout(false);
             this.Rmenu.ResumeLayout(false);
             this.panel12.ResumeLayout(false);
             this.panel13.ResumeLayout(false);
@@ -788,8 +668,6 @@
         private System.Windows.Forms.Button butProyMenu;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnMenuEstudiantes;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Button btnAmenu;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Button btnAvances;
         private System.Windows.Forms.Panel panel5;
@@ -819,20 +697,13 @@
         private System.Windows.Forms.Panel panAvnAsesor;
         private System.Windows.Forms.Button btnAvAse;
         private System.Windows.Forms.Timer RmenuTransition;
-        private System.Windows.Forms.FlowLayoutPanel Amenu;
-        private System.Windows.Forms.Panel panel16;
-        private System.Windows.Forms.Button btnViewAse;
         private System.Windows.Forms.Panel panAddEstu;
         private System.Windows.Forms.Button btnNewEst;
-        private System.Windows.Forms.Timer AmenuTransition;
         private System.Windows.Forms.Panel panel19;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem userMenu;
         private System.Windows.Forms.ToolStripMenuItem cambiarContraseñaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cerrarSesiónToolStripMenuItem;
-        private System.Windows.Forms.Button btnConectar;
-        private System.Windows.Forms.Button btnConfig;
-        private System.Windows.Forms.Button btnIniciarSesion;
         private System.Windows.Forms.ToolStripMenuItem historialToolStripMenuItem;
     }
 }
