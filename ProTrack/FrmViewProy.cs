@@ -103,7 +103,17 @@ namespace ProTrack
 
         }
 
-        private async void FrmViewProy_Load(object sender, EventArgs e)
+        private void FrmViewProy_Load(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private async void FrmViewProy_Enter(object sender, EventArgs e)
         {
             if (Sesion.EsAsesor)
             {
@@ -113,11 +123,6 @@ namespace ProTrack
             {
                 await CargarProyectosAlumno();
             }
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

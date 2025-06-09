@@ -41,27 +41,30 @@
             // dgvProy
             // 
             this.dgvProy.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProy.Location = new System.Drawing.Point(10, 86);
+            this.dgvProy.Location = new System.Drawing.Point(7, 56);
+            this.dgvProy.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgvProy.Name = "dgvProy";
             this.dgvProy.RowHeadersWidth = 62;
             this.dgvProy.RowTemplate.Height = 28;
-            this.dgvProy.Size = new System.Drawing.Size(1020, 591);
+            this.dgvProy.Size = new System.Drawing.Size(680, 384);
             this.dgvProy.TabIndex = 0;
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(113, 39);
+            this.textBox1.Location = new System.Drawing.Point(75, 25);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(366, 26);
+            this.textBox1.Size = new System.Drawing.Size(245, 20);
             this.textBox1.TabIndex = 1;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(48, 42);
+            this.label1.Location = new System.Drawing.Point(32, 27);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(59, 20);
+            this.label1.Size = new System.Drawing.Size(40, 13);
             this.label1.TabIndex = 2;
             this.label1.Text = "Buscar";
             this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -70,9 +73,10 @@
             // 
             this.pictureBox2.BackgroundImage = global::ProTrack.Properties.Resources.mdi__drive_document;
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox2.Location = new System.Drawing.Point(970, 5);
+            this.pictureBox2.Location = new System.Drawing.Point(647, 3);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(60, 60);
+            this.pictureBox2.Size = new System.Drawing.Size(40, 39);
             this.pictureBox2.TabIndex = 16;
             this.pictureBox2.TabStop = false;
             // 
@@ -80,27 +84,30 @@
             // 
             this.pictureBox1.BackgroundImage = global::ProTrack.Properties.Resources.mdi__search;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 35);
+            this.pictureBox1.Location = new System.Drawing.Point(8, 23);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(30, 30);
+            this.pictureBox1.Size = new System.Drawing.Size(20, 20);
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
             // 
             // FrmViewProy
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(235)))), ((int)(((byte)(245)))));
-            this.ClientSize = new System.Drawing.Size(1048, 677);
+            this.ClientSize = new System.Drawing.Size(699, 440);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.dgvProy);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "FrmViewProy";
             this.Text = "FrmViewProy";
             this.Load += new System.EventHandler(this.FrmViewProy_Load);
+            this.Enter += new System.EventHandler(this.FrmViewProy_Enter);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProy)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
