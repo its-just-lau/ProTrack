@@ -20,7 +20,7 @@ namespace ProTrack
         FrmViewAlumnos viewAlumnos;
         FrmAvances avances;
         FrmEntregas entregas;
-        FrmReportes reporte1, reporte2, reporte3, reporte4;
+        FrmReportes reporte1, reporte2, reporte3;
         FrmHistorial historial;
 
         // Estados de expansión de menús
@@ -49,12 +49,12 @@ namespace ProTrack
                 panAddEstu.Visible = false;
                 panAsig.Visible = false;
                 panAsignarProy.Visible = false;
-                panAvnAsesor.Visible = false;
             }
         }
 
         private void viewHistorial()
         {
+            CerrarFormsHijos();
             if (historial == null)
             {
                 historial = new FrmHistorial();
@@ -82,10 +82,19 @@ namespace ProTrack
 
         private void PmenuTransition_Tick(object sender, EventArgs e)
         {
+            int tam;
+            if (opc)
+            {
+                tam = 150;
+            }
+            else
+            {
+                tam = 100;
+            }
             if (!PmenuExpand)
             {
                 ProyMenu.Height += 5;
-                if (ProyMenu.Height >= 150)
+                if (ProyMenu.Height >= tam)
                 {
                     PmenuTransition.Stop();
                     PmenuExpand = true;
@@ -110,6 +119,7 @@ namespace ProTrack
             //    MessageBox.Show("No tienes permiso para crear proyectos.", "Acceso denegado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             //    return;
             //}
+            CerrarFormsHijos();
 
             if (newProy == null)
             {
@@ -132,6 +142,7 @@ namespace ProTrack
 
         private void btnviewProy_Click(object sender, EventArgs e)
         {
+            CerrarFormsHijos();
             if (viewProy == null)
             {
                 viewProy = new FrmViewProy();
@@ -159,6 +170,16 @@ namespace ProTrack
 
         private void EmenuTransition_Tick(object sender, EventArgs e)
         {
+            int tam;
+            if (opc)
+            {
+                tam = 200;
+            }
+            else
+            {
+                tam = 100;
+            }
+
             if (!EmenuExpand)
             {
                 Emenu.Height += 5;
@@ -181,6 +202,7 @@ namespace ProTrack
 
         private void btnViewEst_Click(object sender, EventArgs e)
         {
+            CerrarFormsHijos();
             if (viewAlumnos == null)
             {
                 viewAlumnos = new FrmViewAlumnos();
@@ -211,7 +233,7 @@ namespace ProTrack
             if (!RmenuExpand)
             {
                 Rmenu.Height += 5;
-                if (Rmenu.Height >= 250)
+                if (Rmenu.Height >= 200)
                 {
                     RmenuTransition.Stop();
                     RmenuExpand = true;
@@ -266,14 +288,15 @@ namespace ProTrack
             //await ClienteWS.DesconectarAsync();
         }
 
-        private void btnIniciarSesion_Click(object sender, EventArgs e)
-        {
-            FRMLogin sesionVentana = new FRMLogin();
-            sesionVentana.Show();
-        }
+        //private void btnIniciarSesion_Click(object sender, EventArgs e)
+        //{
+        //    FRMLogin sesionVentana = new FRMLogin();
+        //    sesionVentana.Show();
+        //}
 
         private void btnNewEst_Click(object sender, EventArgs e)
         {
+            CerrarFormsHijos();
             if (newAlu == null)
             {
                 newAlu = new FrmNewAlumno();
@@ -295,6 +318,7 @@ namespace ProTrack
 
         private void btnAvances_Click(object sender, EventArgs e)
         {
+            CerrarFormsHijos();
             if (avances == null)
             {
                 avances = new FrmAvances();
@@ -316,6 +340,7 @@ namespace ProTrack
 
         private void btnAvProy_Click(object sender, EventArgs e)
         {
+            CerrarFormsHijos();
             if (reporte1 == null)
             {
                 reporte1 = new FrmReportes(1);
@@ -337,6 +362,7 @@ namespace ProTrack
 
         private void btnEntrProx_Click(object sender, EventArgs e)
         {
+            CerrarFormsHijos();
             if (reporte2 == null)
             {
                 reporte2 = new FrmReportes(2);
@@ -358,6 +384,7 @@ namespace ProTrack
 
         private void btnNonAv_Click(object sender, EventArgs e)
         {
+            CerrarFormsHijos();
             if (reporte3 == null)
             {
                 reporte3 = new FrmReportes(3);
@@ -374,6 +401,7 @@ namespace ProTrack
 
         private void btnEntregas_Click(object sender, EventArgs e)
         {
+            CerrarFormsHijos();
             if (entregas == null)
             {
                 entregas = new FrmEntregas();
@@ -510,15 +538,6 @@ namespace ProTrack
             btnNewEst.BackColor = Color.FromArgb(60, 85, 165);
         }
 
-        private void btnAvAse_MouseEnter(object sender, EventArgs e)
-        {
-            btnAvAse.BackColor = Color.FromArgb(100, 130, 200);
-        }
-
-        private void btnAvAse_MouseLeave(object sender, EventArgs e)
-        {
-            btnAvAse.BackColor = Color.FromArgb(60, 85, 165);
-        }
 
         private void btnAvProy_MouseEnter(object sender, EventArgs e)
         {
@@ -566,25 +585,26 @@ namespace ProTrack
             reporte3 = null;
         }
 
-        private void btnAvAse_Click(object sender, EventArgs e)
+        private void CerrarFormsHijos()
         {
-            if (reporte4 == null)
+            foreach (Form child in this.MdiChildren)
             {
-                reporte4 = new FrmReportes(4);
-                reporte4.FormClosed += viewRep4_FormClosed;
-                reporte4.MdiParent = this;
-                reporte4.Dock = DockStyle.Fill;
-                reporte4.Show();
+                child.Close();
             }
-            else
-            {
-                reporte4.Activate();
-            }
+
+            // También limpia las referencias, por si quieres reusarlas
+            newProy = null;
+            newAlu = null;
+            viewProy = null;
+            viewAlumnos = null;
+            avances = null;
+            entregas = null;
+            reporte1 = null;
+            reporte2 = null;
+            reporte3 = null;
+            historial = null;
         }
 
-        private void viewRep4_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            reporte4 = null;
-        }
+
     }
 }
