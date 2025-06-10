@@ -35,6 +35,7 @@ namespace ProTrack
             ClienteWS.AlRecibirMensaje += (msg) =>
             {
                 Console.WriteLine("Mensaje recibido: " + msg);
+                entregas?.ProcesarRegistroEntrega(msg);
             };
 
             ClienteWS.AlRecibirRespuestaEstado += (estado, datos) =>
