@@ -19,11 +19,13 @@ namespace ProTrack
         {
             InitializeComponent();
 
-            // Suscribirse al evento de respuesta del WebSocket
-            ClienteWS.AlRecibirRespuestaEstado += ClienteWS_RespuestaProyectos;
+            ClienteWS.AlRecibirRespuestaEstado += ManejarRespuestaEstado;
 
-            // Desuscribirse cuando se cierre
-            this.FormClosed += FrmViewProy_FormClosed;
+            // Suscribirse al evento de respuesta del WebSocket
+            //ClienteWS.AlRecibirRespuestaEstado += ClienteWS_RespuestaProyectos;
+
+            //// Desuscribirse cuando se cierre
+            //this.FormClosed += FrmViewProy_FormClosed;
         }
 
         public async Task CargarProyectosAsesor()
@@ -51,9 +53,16 @@ namespace ProTrack
 
         }
 
-        private void FrmViewProy_Load(object sender, EventArgs e)
+        private async void FrmViewProy_Load(object sender, EventArgs e)
         {
-            
+            if (Sesion.EsAsesor)
+            {
+                await CargarProyectosAsesor();
+            }
+            else if (Sesion.EsEstudiante)
+            {
+                await CargarProyectosAlumno();
+            }
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -73,20 +82,10 @@ namespace ProTrack
 
         private async void btnCargar_Click(object sender, EventArgs e)
         {
-            ClienteWS.AlRecibirRespuestaEstado -= ClienteWS_RespuestaProyectos;
-            ClienteWS.AlRecibirRespuestaEstado += ClienteWS_RespuestaProyectos;
-
-            if (Sesion.EsAsesor)
-            {
-                await CargarProyectosAsesor();
-            }
-            else if (Sesion.EsEstudiante)
-            {
-                await CargarProyectosAlumno();
-            }
+            
         }
 
-        private void ClienteWS_RespuestaProyectos(string estado, object datos)
+        public void ManejarRespuestaEstado(string estado, object datos)
         {
             if (this.IsDisposed) return;
 
@@ -141,8 +140,9 @@ namespace ProTrack
             }));
         }
 
-        private void FrmViewProy_FormClosed(object sender, FormClosedEventArgs e)
+        private void FrmViewProy_FormClosed(object sender   , FormClosedEventArgs e)
         {
+            ClienteWS.AlRecibirRespuestaEstado -= ManejarRespuestaEstado;
 
         }
     }

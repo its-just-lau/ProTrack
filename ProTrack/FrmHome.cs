@@ -40,6 +40,10 @@ namespace ProTrack
             ClienteWS.AlRecibirRespuestaEstado += (estado, datos) =>
             {
                 Console.WriteLine($"Estado: {estado}, Datos: {datos}");
+                viewProy?.ManejarRespuestaEstado(estado, datos);
+                newProy?.ManejarRespuestaEstado(estado, datos);
+                newAlu?.ManejarRespuestaEstado (estado, datos); 
+                entregas?.ManejarRespuestaEstado(estado, datos);
             };
 
             viewHistorial();
@@ -288,6 +292,18 @@ namespace ProTrack
 
         private void FrmHome_FormClosing(object sender, FormClosingEventArgs e)
         {
+            var logoutAudit = new
+            {
+                accion = "auditoria_logout",
+                datos = new
+                {
+                    usuario = Sesion.NombreUsuario,
+                }
+            };
+
+            // Send the audit log to the server via WebSocket
+            _ = ClienteWS.EnviarAsync(logoutAudit);
+
             Application.Exit();
             //await ClienteWS.DesconectarAsync();
         }
@@ -581,7 +597,30 @@ namespace ProTrack
 
         private void cerrarSesiónToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Application.Restart();
+            var logoutAudit = new
+            {
+                accion = "auditoria_logout",
+                datos = new
+                {
+                    usuario = Sesion.NombreUsuario,
+                }
+            };
+
+            // Send the audit log to the server via WebSocket
+            _ = ClienteWS.EnviarAsync(logoutAudit);
+
+            Application.Restart(); // Como le hago para que corra el logout en restart?
+            // Usar restart no funciona. La app deja de jalar.
+        }
+
+        private void FrmHome_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FrmHome_FormClosed(object sender, FormClosedEventArgs e)
+        {
+
         }
 
         private void viewRep3_FormClosed(object sender, FormClosedEventArgs e)

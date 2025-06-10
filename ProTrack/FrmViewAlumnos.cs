@@ -16,55 +16,7 @@ namespace ProTrack
         public FrmViewAlumnos()
         {
             InitializeComponent();
-
-            ClienteWS.AlRecibirRespuestaEstado += (estado, datos) =>
-            {
-                this.Invoke((MethodInvoker)(() =>
-                {
-                    if (estado == "exito")
-                    {
-                        try
-                        {
-                            string json = datos.ToString();
-                            var lista = JsonConvert.DeserializeObject<List<Dictionary<string, string>>>(json);
-
-                            if (dgvEstudiantes.Columns.Count == 0)
-                            {
-                                dgvEstudiantes.Columns.Add("id_estudiante", "ID");
-                                dgvEstudiantes.Columns.Add("nombre", "Nombre");
-                                dgvEstudiantes.Columns.Add("carrera", "Carrera");
-                                dgvEstudiantes.Columns.Add("semestre", "Semestre");
-                                dgvEstudiantes.Columns.Add("correo", "Correo");
-                            }
-
-                            dgvEstudiantes.Rows.Clear();
-
-                            foreach (var e in lista)
-                            {
-                                dgvEstudiantes.Rows.Add(
-                                    e["id_estudiante"],
-                                    e["nombre"],
-                                    e["carrera"],
-                                    e["semestre"],
-                                    e["correo"]
-                                );
-                            }
-
-                            dgvEstudiantes.EnableHeadersVisualStyles = false;
-                            dgvEstudiantes.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(80, 120, 180);
-                            dgvEstudiantes.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 9, FontStyle.Bold);
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show("Error al mostrar estudiantes.\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                    }
-                    else
-                    {
-                        MessageBox.Show(datos.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }));
-            };
+            ClienteWS.AlRecibirRespuestaEstado += ManejarRespuestaEstado;
         }
 
         public async Task CargarEstudiantes()
@@ -85,8 +37,62 @@ namespace ProTrack
             }
             else if (Sesion.EsEstudiante)
             {
-                await CargarEstudiantes();
+                await CargarEstudiantes(); // Hacer una funcion exclusiva para los estudiantes???
             }
+        }
+
+        public void ManejarRespuestaEstado(string estado, object datos)
+        {
+            this.Invoke((MethodInvoker)(() =>
+            {
+                if (estado == "exito")
+                {
+                    try
+                    {
+                        string json = datos.ToString();
+                        var lista = JsonConvert.DeserializeObject<List<Dictionary<string, string>>>(json);
+
+                        if (dgvEstudiantes.Columns.Count == 0)
+                        {
+                            dgvEstudiantes.Columns.Add("id_estudiante", "ID");
+                            dgvEstudiantes.Columns.Add("nombre", "Nombre");
+                            dgvEstudiantes.Columns.Add("carrera", "Carrera");
+                            dgvEstudiantes.Columns.Add("semestre", "Semestre");
+                            dgvEstudiantes.Columns.Add("correo", "Correo");
+                        }
+
+                        dgvEstudiantes.Rows.Clear();
+
+                        foreach (var e in lista)
+                        {
+                            dgvEstudiantes.Rows.Add(
+                                e["id_estudiante"],
+                                e["nombre"],
+                                e["carrera"],
+                                e["semestre"],
+                                e["correo"]
+                            );
+                        }
+
+                        dgvEstudiantes.EnableHeadersVisualStyles = false;
+                        dgvEstudiantes.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(80, 120, 180);
+                        dgvEstudiantes.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 9, FontStyle.Bold);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error al mostrar estudiantes.\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show(datos.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }));
+        }
+
+        private void FrmViewAlumnos_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            ClienteWS.AlRecibirRespuestaEstado -= ManejarRespuestaEstado;
         }
     }
 }

@@ -51,7 +51,7 @@
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(73, 20);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(245, 20);
             this.textBox1.TabIndex = 5;
@@ -60,7 +60,7 @@
             // 
             this.dgvEstudiantes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvEstudiantes.Location = new System.Drawing.Point(4, 51);
-            this.dgvEstudiantes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvEstudiantes.Margin = new System.Windows.Forms.Padding(2);
             this.dgvEstudiantes.Name = "dgvEstudiantes";
             this.dgvEstudiantes.RowHeadersWidth = 62;
             this.dgvEstudiantes.RowTemplate.Height = 28;
@@ -72,7 +72,7 @@
             this.pictureBox2.BackgroundImage = global::ProTrack.Properties.Resources.mdi__academic_cap;
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox2.Location = new System.Drawing.Point(636, 8);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(40, 39);
             this.pictureBox2.TabIndex = 15;
@@ -83,7 +83,7 @@
             this.pictureBox1.BackgroundImage = global::ProTrack.Properties.Resources.mdi__search;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox1.Location = new System.Drawing.Point(5, 18);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(20, 20);
             this.pictureBox1.TabIndex = 7;
@@ -101,9 +101,10 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.dgvEstudiantes);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FrmViewAlumnos";
             this.Text = "FrmViewAlumnos";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmViewAlumnos_FormClosed);
             this.Load += new System.EventHandler(this.FrmViewAlumnos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvEstudiantes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();

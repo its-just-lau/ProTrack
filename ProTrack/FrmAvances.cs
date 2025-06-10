@@ -66,12 +66,11 @@ namespace ProTrack
             };
         }
 
-        public async Task CargarAvances(int idProyecto)
+        private async void btnCargar_Click(object sender, EventArgs e)
         {
             var solicitud = new
             {
-                accion = "listar_avances",
-                id_proyecto = idProyecto
+                accion = "listar_avances"
             };
 
             await ClienteWS.EnviarAsync(solicitud);

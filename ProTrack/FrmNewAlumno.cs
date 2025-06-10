@@ -15,27 +15,11 @@ namespace ProTrack
         public FrmNewAlumno()
         {
             InitializeComponent();
-
-            ClienteWS.AlRecibirRespuestaEstado += (estado, datos) =>
-            {
-                this.Invoke((MethodInvoker)(() =>
-                {
-                    if (estado == "exito")
-                    {
-                        MessageBox.Show(datos, "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        this.Close();
-                    }
-                    else if (estado == "error")
-                    {
-                        MessageBox.Show(datos, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }));
-            };
         }
 
         private void FrmNewAlumno_Activated(object sender, EventArgs e)
         {
-            Console.WriteLine("SI ES AQUI");
+
         }
 
         private async void btnAgregar_Click(object sender, EventArgs e)
@@ -67,6 +51,21 @@ namespace ProTrack
             {
                 MessageBox.Show("Error enviando datos al servidor: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        public void ManejarRespuestaEstado(string estado, string datos)
+        {
+            this.Invoke((MethodInvoker)(() =>
+            {
+                if (estado == "exito" && datos.Contains("Alumno"))
+                {
+                    MessageBox.Show(datos, "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else if (estado == "error")
+                {
+                    MessageBox.Show(datos, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }));
         }
     }
 }

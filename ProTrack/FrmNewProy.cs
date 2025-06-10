@@ -15,22 +15,6 @@ namespace ProTrack
         public FrmNewProy()
         {
             InitializeComponent();
-
-            ClienteWS.AlRecibirRespuestaEstado += (estado, datos) =>
-            { 
-                this.Invoke((MethodInvoker)(() =>
-                {
-                    if (estado == "exito" && datos.Contains("Proyecto creado"))
-                    {
-                        MessageBox.Show(datos, "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        this.Close();
-                    }
-                    else if (estado == "error")
-                    {
-                        MessageBox.Show(datos, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }));
-            };
         }
 
         private async void button2_Click(object sender, EventArgs e) //btnAgregarProy
@@ -57,5 +41,21 @@ namespace ProTrack
 
             await ClienteWS.EnviarAsync(nuevoProyecto);
         }
+
+        public void ManejarRespuestaEstado(string estado, string datos)
+        {
+            this.Invoke((MethodInvoker)(() =>
+            {
+                if (estado == "exito" && datos.Contains("Proyecto creado"))
+                {
+                    MessageBox.Show(datos, "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else if (estado == "error")
+                {
+                    MessageBox.Show(datos, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }));
+        }
+
     }
 }
