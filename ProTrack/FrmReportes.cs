@@ -34,7 +34,7 @@ namespace ProTrack
                 int idProyecto = Convert.ToInt32(cmBoxProyecto.SelectedValue);
                 await ClienteWS.EnviarAsync(new
                 {
-                    accion = "reporte_avances_por_proyecto",
+                    accion = "reporte_avances_proyecto",
                     id_proyecto = idProyecto
                 });
             }
@@ -59,23 +59,62 @@ namespace ProTrack
                             switch (opc)
                             {
                                 case 1: // Avances por proyecto
-                                    dgvReporte.Columns.Add("id_avance", "ID");
-                                    dgvReporte.Columns.Add("descripcion", "Descripción");
-                                    dgvReporte.Columns.Add("fecha", "Fecha");
-                                    dgvReporte.Columns.Add("estatus", "Estatus");
+                                    //dgvReporte.Columns.Add("id_avance", "ID");
+                                    //dgvReporte.Columns.Add("descripcion", "Descripción");
+                                    //dgvReporte.Columns.Add("fecha", "Fecha");
+                                    //dgvReporte.Columns.Add("porcentaje_completado", "Porcentaje");
 
-                                    foreach (var item in lista)
-                                        dgvReporte.Rows.Add(item["id_avance"], item["descripcion"], item["fecha"], item["estatus"]);
-                                    break;
+                                    //foreach (var item in lista)
+                                    //    dgvReporte.Rows.Add(item["id_avance"], item["descripcion"], item["fecha"], item["porcentaje_completado"]);
+
+                                    // Llenar ComboBox con los proyectos
+                                    //cmBoxProyecto.DisplayMember = "nombre";
+                                    //cmBoxProyecto.ValueMember = "id_proyecto";
+                                    //cmBoxProyecto.DataSource = lista
+                                    //    .Select(item => new
+                                    //    {
+                                    //        nombre = item["nombre"],
+                                    //        id_proyecto = item["id_proyecto"]
+                                    //    })
+                                    //    .ToList();
+                                    
+                                        if (lista.Any() && lista[0].ContainsKey("id_proyecto")) // Carga proyectos al ComboBox
+                                        {
+                                            cmBoxProyecto.DisplayMember = "nombre";
+                                            cmBoxProyecto.ValueMember = "id_proyecto";
+                                            cmBoxProyecto.DataSource = lista
+                                                .Select(item => new
+                                                {
+                                                    nombre = item["nombre"],
+                                                    id_proyecto = item["id_proyecto"]
+                                                })
+                                                .ToList();
+                                        }
+                                        else if (lista.Any() && lista[0].ContainsKey("id_avance")) // Carga avances al DataGrid
+                                        {
+                                            dgvReporte.Columns.Add("id_avance", "ID");
+                                            dgvReporte.Columns.Add("descripcion", "Descripción");
+                                            dgvReporte.Columns.Add("fecha", "Fecha");
+                                            dgvReporte.Columns.Add("porcentaje_completado", "Porcentaje");
+
+                                            foreach (var item in lista)
+                                                dgvReporte.Rows.Add(item["id_avance"], item["descripcion"], item["fecha"], item["porcentaje_completado"]);
+                                        }
+
+
+                                        break;
 
                                 case 2: // Entregas próximas
-                                    dgvReporte.Columns.Add("id_entrega", "ID");
                                     dgvReporte.Columns.Add("nombre_entrega", "Entrega");
                                     dgvReporte.Columns.Add("fecha_programada", "Fecha Programada");
-                                    dgvReporte.Columns.Add("proyecto", "Proyecto");
+                                    dgvReporte.Columns.Add("estatus", "Estatus"); // Ya lo tienes, agrégalo visualmente también
 
                                     foreach (var item in lista)
-                                        dgvReporte.Rows.Add(item["id_entrega"], item["nombre_entrega"], item["fecha_programada"], item["proyecto"]);
+                                        dgvReporte.Rows.Add(item["nombre_entrega"], item["fecha_programada"], item["estatus"]);
+                                    dgvReporte.Columns[0].Width = 315;
+                                    dgvReporte.Columns[1].Width = 135;
+                                    dgvReporte.Columns[2].Width = 135;
+
                                     break;
 
                                 case 3: // Proyectos sin avances recientes
@@ -86,6 +125,12 @@ namespace ProTrack
 
                                     foreach (var item in lista)
                                         dgvReporte.Rows.Add(item["id_proyecto"], item["nombre"], item["descripcion"], item["estatus"]);
+
+                                    dgvReporte.Columns[0].Width = 55;
+                                    dgvReporte.Columns[1].Width = 200;
+                                    dgvReporte.Columns[2].Width = 260;
+                                    dgvReporte.Columns[3].Width = 100;
+
                                     break;
                             }
 
@@ -116,6 +161,16 @@ namespace ProTrack
             await ClienteWS.EnviarAsync(solicitud);
         }
 
+        public async Task CargarProyectos()
+        {
+            var solicitud = new
+            {
+                accion = "proyecto_asesor"
+            };
+
+            await ClienteWS.EnviarAsync(solicitud);
+        }
+
         public async Task CargarProyectosSinAvances()
         {
             var solicitud = new
@@ -130,6 +185,9 @@ namespace ProTrack
         {
             switch (opc)
             {
+                case 1:
+                    await CargarProyectos();
+                    break;
                 case 2:
                     await CargarEntregasProximas();
                     break;
