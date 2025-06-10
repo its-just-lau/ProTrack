@@ -74,6 +74,8 @@ namespace ProTrack
                             );
                         }
 
+                        dgvEstudiantes.Columns[0].Width = 55;
+                        dgvEstudiantes.Columns[1].Width = 145;
                         dgvEstudiantes.EnableHeadersVisualStyles = false;
                         dgvEstudiantes.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(80, 120, 180);
                         dgvEstudiantes.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 9, FontStyle.Bold);
