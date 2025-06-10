@@ -48,11 +48,6 @@ namespace ProTrack
             await ClienteWS.EnviarAsync(solicitud);
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private async void FrmViewProy_Load(object sender, EventArgs e)
         {
             if (Sesion.EsAsesor)
@@ -68,16 +63,6 @@ namespace ProTrack
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
-        }
-
-        private void FrmViewProy_Enter(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void FrmViewProy_Activated(object sender, EventArgs e)
-        {
-            
         }
 
         private async void btnCargar_Click(object sender, EventArgs e)
@@ -122,7 +107,8 @@ namespace ProTrack
                             );
                         }
 
-                        dgvProy.Columns[1].Width = 153;
+                        dgvProy.Columns[0].Width = 55;
+                        dgvProy.Columns[1].Width = 145;
                         dgvProy.EnableHeadersVisualStyles = false;
                         dgvProy.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(100, 130, 200);
                         dgvProy.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 8, FontStyle.Bold);

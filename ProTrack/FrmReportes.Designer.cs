@@ -28,27 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dgvReportes = new System.Windows.Forms.DataGridView();
+            this.dgvReporte = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.cmBoxProyecto = new System.Windows.Forms.ComboBox();
             this.labProyecto = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvReportes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvReporte)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // dgvReportes
+            // dgvReporte
             // 
-            this.dgvReportes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvReportes.Location = new System.Drawing.Point(12, 102);
-            this.dgvReportes.Name = "dgvReportes";
-            this.dgvReportes.RowHeadersWidth = 62;
-            this.dgvReportes.RowTemplate.Height = 28;
-            this.dgvReportes.Size = new System.Drawing.Size(981, 542);
-            this.dgvReportes.TabIndex = 0;
+            this.dgvReporte.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvReporte.Location = new System.Drawing.Point(12, 102);
+            this.dgvReporte.Name = "dgvReporte";
+            this.dgvReporte.RowHeadersWidth = 62;
+            this.dgvReporte.RowTemplate.Height = 28;
+            this.dgvReporte.Size = new System.Drawing.Size(981, 542);
+            this.dgvReporte.TabIndex = 0;
             // 
             // label1
             // 
@@ -118,11 +118,13 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.dgvReportes);
+            this.Controls.Add(this.dgvReporte);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmReportes";
             this.Text = "FrmReportes";
-            ((System.ComponentModel.ISupportInitialize)(this.dgvReportes)).EndInit();
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmReportes_FormClosed);
+            this.Load += new System.EventHandler(this.FrmReportes_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvReporte)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -132,7 +134,7 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dgvReportes;
+        private System.Windows.Forms.DataGridView dgvReporte;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox1;

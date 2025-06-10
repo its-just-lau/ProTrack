@@ -44,6 +44,8 @@ namespace ProTrack
                 newProy?.ManejarRespuestaEstado(estado, datos);
                 newAlu?.ManejarRespuestaEstado (estado, datos); 
                 entregas?.ManejarRespuestaEstado(estado, datos);
+                reporte2?.ManejarRespuestaEstado(estado, datos);
+                reporte3?.ManejarRespuestaEstado(estado, datos);
             };
 
             viewHistorial();
