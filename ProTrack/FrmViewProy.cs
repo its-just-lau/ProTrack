@@ -80,9 +80,32 @@ namespace ProTrack
                 {
                     try
                     {
-                        string json = datos.ToString();
+                        // Si 'datos' ya viene como JArray o List<object>, primero lo convertimos a JSON string
+                        string json;
+
+                        if (datos is JToken jtoken)
+                        {
+                            json = jtoken.ToString(Formatting.None);
+                        }
+                        else if (datos is string str)
+                        {
+                            json = str;
+                        }
+                        else
+                        {
+                            // Intentamos serializar el objeto recibido
+                            json = JsonConvert.SerializeObject(datos);
+                        }
+
                         var proyectos = JsonConvert.DeserializeObject<List<Dictionary<string, string>>>(json);
 
+                        if (proyectos == null)
+                        {
+                            MessageBox.Show("No se encontraron proyectos para mostrar.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            return;
+                        }
+
+                        // Agregar columnas sólo si no existen
                         if (dgvProy.Columns.Count == 0)
                         {
                             dgvProy.Columns.Add("id_proyecto", "ID Proyecto");
@@ -98,12 +121,12 @@ namespace ProTrack
                         foreach (var p in proyectos)
                         {
                             dgvProy.Rows.Add(
-                                p["id_proyecto"],
-                                p["nombre"],
-                                p["descripcion"],
-                                p["fecha_inicio"],
-                                p["fecha_estimada_entrega"],
-                                p["estatus"]
+                                p.TryGetValue("id_proyecto", out var idProyecto) ? idProyecto : "",
+                                p.TryGetValue("nombre", out var nombre) ? nombre : "",
+                                p.TryGetValue("descripcion", out var descripcion) ? descripcion : "",
+                                p.TryGetValue("fecha_inicio", out var fechaInicio) ? fechaInicio : "",
+                                p.TryGetValue("fecha_estimada_entrega", out var fechaEstimada) ? fechaEstimada : "",
+                                p.TryGetValue("estatus", out var estatus) ? estatus : ""
                             );
                         }
 
@@ -121,10 +144,11 @@ namespace ProTrack
                 }
                 else if (estado == "error")
                 {
-                    MessageBox.Show(datos.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(datos?.ToString() ?? "Error desconocido", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }));
         }
+
 
         private void FrmViewProy_FormClosed(object sender   , FormClosedEventArgs e)
         {

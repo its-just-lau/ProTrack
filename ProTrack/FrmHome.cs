@@ -42,7 +42,8 @@ namespace ProTrack
                 Console.WriteLine($"Estado: {estado}, Datos: {datos}");
                 viewProy?.ManejarRespuestaEstado(estado, datos);
                 newProy?.ManejarRespuestaEstado(estado, datos);
-                newAlu?.ManejarRespuestaEstado (estado, datos); 
+                newAlu?.ManejarRespuestaEstado (estado, datos);
+                avances?.ManejarRespuestaEstado(estado, datos);
                 entregas?.ManejarRespuestaEstado(estado, datos);
                 reporte1?.ManejarRespuestaEstado(estado, datos);
                 reporte2?.ManejarRespuestaEstado(estado, datos);

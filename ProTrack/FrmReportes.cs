@@ -101,7 +101,6 @@ namespace ProTrack
                                                 dgvReporte.Rows.Add(item["id_avance"], item["descripcion"], item["fecha"], item["porcentaje_completado"]);
                                         }
 
-
                                         break;
 
                                 case 2: // Entregas próximas

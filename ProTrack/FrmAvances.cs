@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace ProTrack
 {
@@ -16,54 +17,7 @@ namespace ProTrack
         public FrmAvances()
         {
             InitializeComponent();
-
-            ClienteWS.AlRecibirRespuestaEstado += (estado, datos) =>
-            {
-                this.Invoke((MethodInvoker)(() =>
-                {
-                    if (estado == "exito")
-                    {
-                        try
-                        {
-                            string json = datos.ToString();
-                            var avances = JsonConvert.DeserializeObject<List<Dictionary<string, string>>>(json);
-
-                            if (dgvAvances.Columns.Count == 0)
-                            {
-                                dgvAvances.Columns.Add("id_avance", "ID Avance");
-                                dgvAvances.Columns.Add("descripcion", "Descripción");
-                                dgvAvances.Columns.Add("fecha_registro", "Fecha Registro");
-                                dgvAvances.Columns.Add("porcentaje_completado", "% Completado");
-                            }
-
-                            dgvAvances.Rows.Clear();
-
-                            foreach (var a in avances)
-                            {
-                                dgvAvances.Rows.Add(
-                                    a["id_avance"],
-                                    a["descripcion"],
-                                    a["fecha_registro"],
-                                    a["porcentaje_completado"]
-                                );
-                            }
-
-                            dgvAvances.EnableHeadersVisualStyles = false;
-                            dgvAvances.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(100, 130, 200);
-                            dgvAvances.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 8, FontStyle.Bold);
-                            dgvAvances.GridColor = Color.Black;
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show("Error al procesar los avances.\n" + ex.Message);
-                        }
-                    }
-                    else if (estado == "error")
-                    {
-                        MessageBox.Show(datos.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }));
-            };
+            ClienteWS.AlRecibirRespuestaEstado += ManejarRespuestaEstado;
         }
 
         private async void btnCargar_Click(object sender, EventArgs e)
@@ -75,5 +29,82 @@ namespace ProTrack
 
             await ClienteWS.EnviarAsync(solicitud);
         }
+
+        private async void FrmAvances_Load(object sender, EventArgs e)
+        {
+            await ClienteWS.EnviarAsync(new { accion = "listar_proyectos_alumno" });
+        }
+
+        private void FrmAvances_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            ClienteWS.AlRecibirRespuestaEstado -= ManejarRespuestaEstado;
+        }
+
+        public void ManejarRespuestaEstado(string estado, object datos)
+        {
+            if (this.IsDisposed) return;
+
+            this.Invoke((MethodInvoker)(() =>
+            {
+                if (estado == "exito")
+                {
+                    try
+                    {
+                        List<Dictionary<string, string>> lista = null;
+
+                        if (datos is JArray jArray)
+                        {
+                            lista = jArray.ToObject<List<Dictionary<string, string>>>();
+                        }
+                        else if (datos is string jsonString)
+                        {
+                            jsonString = jsonString.Trim();
+                            if (jsonString.StartsWith("[") || jsonString.StartsWith("{"))
+                            {
+                                lista = JsonConvert.DeserializeObject<List<Dictionary<string, string>>>(jsonString);
+                            }
+                            else
+                            {
+                                MessageBox.Show(jsonString, "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                return;
+                            }
+                        }
+                        else
+                        {
+                            var json = JsonConvert.SerializeObject(datos);
+                            lista = JsonConvert.DeserializeObject<List<Dictionary<string, string>>>(json);
+                        }
+
+                        if (lista == null || lista.Count == 0)
+                        {
+                            MessageBox.Show("No se recibieron datos.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            return;
+                        }
+
+                        // Aquí creamos una lista de objetos anónimos con propiedades para el ComboBox
+                        var proyectosAnon = lista.Select(d => new
+                        {
+                            id_proyecto = d.ContainsKey("id_proyecto") ? d["id_proyecto"] : "",
+                            nombre = d.ContainsKey("nombre") ? d["nombre"] : ""
+                        }).ToList();
+
+                        cbxProyectos.DataSource = proyectosAnon;
+                        cbxProyectos.DisplayMember = "nombre";
+                        cbxProyectos.ValueMember = "id_proyecto";
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error al procesar la respuesta:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else if (estado == "error")
+                {
+                    MessageBox.Show(datos.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }));
+        }
+
+
+
     }
 }

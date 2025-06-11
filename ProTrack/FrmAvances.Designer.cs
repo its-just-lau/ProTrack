@@ -30,7 +30,7 @@
         {
             this.dgvAvances = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbxProyectos = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
@@ -50,7 +50,7 @@
             // 
             this.dgvAvances.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAvances.Location = new System.Drawing.Point(8, 150);
-            this.dgvAvances.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvAvances.Margin = new System.Windows.Forms.Padding(2);
             this.dgvAvances.Name = "dgvAvances";
             this.dgvAvances.RowHeadersWidth = 62;
             this.dgvAvances.RowTemplate.Height = 28;
@@ -67,14 +67,14 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Proyecto";
             // 
-            // comboBox1
+            // cbxProyectos
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(17, 29);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(181, 21);
-            this.comboBox1.TabIndex = 2;
+            this.cbxProyectos.FormattingEnabled = true;
+            this.cbxProyectos.Location = new System.Drawing.Point(17, 29);
+            this.cbxProyectos.Margin = new System.Windows.Forms.Padding(2);
+            this.cbxProyectos.Name = "cbxProyectos";
+            this.cbxProyectos.Size = new System.Drawing.Size(181, 21);
+            this.cbxProyectos.TabIndex = 2;
             // 
             // label2
             // 
@@ -89,7 +89,7 @@
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(17, 66);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(311, 53);
@@ -98,7 +98,7 @@
             // dateTimePicker1
             // 
             this.dateTimePicker1.Location = new System.Drawing.Point(350, 30);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(2);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(147, 20);
             this.dateTimePicker1.TabIndex = 5;
@@ -126,7 +126,7 @@
             // numericUpDown1
             // 
             this.numericUpDown1.Location = new System.Drawing.Point(350, 67);
-            this.numericUpDown1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.numericUpDown1.Margin = new System.Windows.Forms.Padding(2);
             this.numericUpDown1.Name = "numericUpDown1";
             this.numericUpDown1.Size = new System.Drawing.Size(80, 20);
             this.numericUpDown1.TabIndex = 8;
@@ -134,7 +134,7 @@
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(599, 103);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(69, 23);
             this.button1.TabIndex = 9;
@@ -144,7 +144,7 @@
             // btnAgregar
             // 
             this.btnAgregar.Location = new System.Drawing.Point(526, 103);
-            this.btnAgregar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAgregar.Margin = new System.Windows.Forms.Padding(2);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(69, 23);
             this.btnAgregar.TabIndex = 10;
@@ -157,7 +157,7 @@
             this.pictureBox1.BackgroundImage = global::ProTrack.Properties.Resources.mdi__book_add;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox1.Location = new System.Drawing.Point(590, 8);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(87, 84);
             this.pictureBox1.TabIndex = 14;
@@ -189,13 +189,15 @@
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cbxProyectos);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvAvances);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FrmAvances";
             this.Text = "FrmAvances";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmAvances_FormClosed);
+            this.Load += new System.EventHandler(this.FrmAvances_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAvances)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -208,7 +210,7 @@
 
         private System.Windows.Forms.DataGridView dgvAvances;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbxProyectos;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
