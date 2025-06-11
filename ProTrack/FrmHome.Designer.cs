@@ -38,7 +38,7 @@
             this.btnNewProy = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnMenuEstudiantes = new System.Windows.Forms.Button();
-            this.panel4 = new System.Windows.Forms.Panel();
+            this.panAvances = new System.Windows.Forms.Panel();
             this.btnAvances = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.btnEntregas = new System.Windows.Forms.Button();
@@ -74,7 +74,7 @@
             this.panel7.SuspendLayout();
             this.panAsignarProy.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.panel4.SuspendLayout();
+            this.panAvances.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
             this.Emenu.SuspendLayout();
@@ -216,14 +216,14 @@
             this.btnMenuEstudiantes.MouseEnter += new System.EventHandler(this.btnMenuEstudiantes_MouseEnter);
             this.btnMenuEstudiantes.MouseLeave += new System.EventHandler(this.btnMenuEstudiantes_MouseLeave);
             // 
-            // panel4
+            // panAvances
             // 
-            this.panel4.Controls.Add(this.btnAvances);
-            this.panel4.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel4.Location = new System.Drawing.Point(3, 253);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(250, 50);
-            this.panel4.TabIndex = 5;
+            this.panAvances.Controls.Add(this.btnAvances);
+            this.panAvances.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panAvances.Location = new System.Drawing.Point(3, 253);
+            this.panAvances.Name = "panAvances";
+            this.panAvances.Size = new System.Drawing.Size(250, 50);
+            this.panAvances.TabIndex = 5;
             // 
             // btnAvances
             // 
@@ -416,7 +416,7 @@
             this.flowLayoutPanel1.Controls.Add(this.ProyMenu);
             this.flowLayoutPanel1.Controls.Add(this.Emenu);
             this.flowLayoutPanel1.Controls.Add(this.panel5);
-            this.flowLayoutPanel1.Controls.Add(this.panel4);
+            this.flowLayoutPanel1.Controls.Add(this.panAvances);
             this.flowLayoutPanel1.Controls.Add(this.Rmenu);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
@@ -546,13 +546,14 @@
             // 
             this.menuStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(220)))), ((int)(((byte)(235)))));
             this.menuStrip1.Dock = System.Windows.Forms.DockStyle.None;
+            this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.userMenu,
             this.historialToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(3, 3);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(161, 32);
+            this.menuStrip1.Size = new System.Drawing.Size(212, 33);
             this.menuStrip1.TabIndex = 12;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
@@ -565,14 +566,14 @@
             this.cerrarSesiónToolStripMenuItem});
             this.userMenu.Image = global::ProTrack.Properties.Resources.mdi__user_online__1_;
             this.userMenu.Name = "userMenu";
-            this.userMenu.Size = new System.Drawing.Size(66, 28);
+            this.userMenu.Size = new System.Drawing.Size(87, 29);
             this.userMenu.Text = "User";
             // 
             // cambiarContraseñaToolStripMenuItem
             // 
             this.cambiarContraseñaToolStripMenuItem.Image = global::ProTrack.Properties.Resources.mdi__password_reset__1_;
             this.cambiarContraseñaToolStripMenuItem.Name = "cambiarContraseñaToolStripMenuItem";
-            this.cambiarContraseñaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cambiarContraseñaToolStripMenuItem.Size = new System.Drawing.Size(271, 34);
             this.cambiarContraseñaToolStripMenuItem.Text = "Cambiar contraseña";
             this.cambiarContraseñaToolStripMenuItem.Click += new System.EventHandler(this.cambiarContraseñaToolStripMenuItem_Click);
             // 
@@ -580,7 +581,7 @@
             // 
             this.cerrarSesiónToolStripMenuItem.Image = global::ProTrack.Properties.Resources.mdi__logout__1_;
             this.cerrarSesiónToolStripMenuItem.Name = "cerrarSesiónToolStripMenuItem";
-            this.cerrarSesiónToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cerrarSesiónToolStripMenuItem.Size = new System.Drawing.Size(271, 34);
             this.cerrarSesiónToolStripMenuItem.Text = "Cerrar sesión";
             this.cerrarSesiónToolStripMenuItem.Click += new System.EventHandler(this.cerrarSesiónToolStripMenuItem_Click);
             // 
@@ -588,7 +589,7 @@
             // 
             this.historialToolStripMenuItem.Image = global::ProTrack.Properties.Resources.mdi__history;
             this.historialToolStripMenuItem.Name = "historialToolStripMenuItem";
-            this.historialToolStripMenuItem.Size = new System.Drawing.Size(87, 28);
+            this.historialToolStripMenuItem.Size = new System.Drawing.Size(117, 29);
             this.historialToolStripMenuItem.Text = "Historial";
             this.historialToolStripMenuItem.Click += new System.EventHandler(this.historialToolStripMenuItem_Click);
             // 
@@ -610,7 +611,7 @@
             this.panel7.ResumeLayout(false);
             this.panAsignarProy.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
-            this.panel4.ResumeLayout(false);
+            this.panAvances.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.Emenu.ResumeLayout(false);
@@ -636,7 +637,7 @@
         private System.Windows.Forms.Button butProyMenu;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnMenuEstudiantes;
-        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel panAvances;
         private System.Windows.Forms.Button btnAvances;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Button btnEntregas;

@@ -28,24 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dgvHistorial = new System.Windows.Forms.DataGridView();
+            this.dgvAuditorias = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvHistorial)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAuditorias)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // dgvHistorial
+            // dgvAuditorias
             // 
-            this.dgvHistorial.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvHistorial.Location = new System.Drawing.Point(12, 170);
-            this.dgvHistorial.Name = "dgvHistorial";
-            this.dgvHistorial.RowHeadersWidth = 62;
-            this.dgvHistorial.RowTemplate.Height = 28;
-            this.dgvHistorial.Size = new System.Drawing.Size(1003, 530);
-            this.dgvHistorial.TabIndex = 0;
+            this.dgvAuditorias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvAuditorias.Location = new System.Drawing.Point(12, 170);
+            this.dgvAuditorias.Name = "dgvAuditorias";
+            this.dgvAuditorias.RowHeadersWidth = 62;
+            this.dgvAuditorias.RowTemplate.Height = 28;
+            this.dgvAuditorias.Size = new System.Drawing.Size(1003, 530);
+            this.dgvAuditorias.TabIndex = 0;
             // 
             // panel1
             // 
@@ -85,11 +85,13 @@
             this.ClientSize = new System.Drawing.Size(1027, 700);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.dgvHistorial);
+            this.Controls.Add(this.dgvAuditorias);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmHistorial";
             this.Text = "FrmHistorial";
-            ((System.ComponentModel.ISupportInitialize)(this.dgvHistorial)).EndInit();
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmHistorial_FormClosed);
+            this.Load += new System.EventHandler(this.FrmHistorial_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAuditorias)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -99,7 +101,7 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dgvHistorial;
+        private System.Windows.Forms.DataGridView dgvAuditorias;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;

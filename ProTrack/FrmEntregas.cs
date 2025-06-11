@@ -154,14 +154,6 @@ namespace ProTrack
         }
 
 
-
-
-
-        private void btnCargar_Click(object sender, EventArgs e)
-        {
-            // Aqui no habra nada
-        }
-
         private void LimpiarCampos()
         {
             txtNombreEntrega.Clear();
@@ -236,7 +228,7 @@ namespace ProTrack
                 cmbEstatus.Enabled = true;
             }
 
-            await ClienteWS.EnviarAsync(new { accion = "listar_entregas" });
+            await ClienteWS.EnviarAsync(new { accion = "proyecto_asesor" });
         }
     }
 }

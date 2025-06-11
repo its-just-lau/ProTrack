@@ -39,7 +39,6 @@
             this.dgvEntregas = new System.Windows.Forms.DataGridView();
             this.btnRegistrar = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnCargar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEntregas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -128,7 +127,7 @@
             // 
             // btnRegistrar
             // 
-            this.btnRegistrar.Location = new System.Drawing.Point(678, 45);
+            this.btnRegistrar.Location = new System.Drawing.Point(674, 121);
             this.btnRegistrar.Name = "btnRegistrar";
             this.btnRegistrar.Size = new System.Drawing.Size(104, 35);
             this.btnRegistrar.TabIndex = 9;
@@ -146,24 +145,12 @@
             this.pictureBox1.TabIndex = 14;
             this.pictureBox1.TabStop = false;
             // 
-            // btnCargar
-            // 
-            this.btnCargar.Location = new System.Drawing.Point(678, 118);
-            this.btnCargar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnCargar.Name = "btnCargar";
-            this.btnCargar.Size = new System.Drawing.Size(112, 35);
-            this.btnCargar.TabIndex = 15;
-            this.btnCargar.Text = "Cargar";
-            this.btnCargar.UseVisualStyleBackColor = true;
-            this.btnCargar.Click += new System.EventHandler(this.btnCargar_Click);
-            // 
             // FrmEntregas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(235)))), ((int)(((byte)(245)))));
             this.ClientSize = new System.Drawing.Size(1028, 700);
-            this.Controls.Add(this.btnCargar);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnRegistrar);
             this.Controls.Add(this.dgvEntregas);
@@ -200,6 +187,5 @@
         private System.Windows.Forms.DataGridView dgvEntregas;
         private System.Windows.Forms.Button btnRegistrar;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button btnCargar;
     }
 }

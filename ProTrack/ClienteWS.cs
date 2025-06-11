@@ -52,6 +52,7 @@ namespace ProTrack
 
                     string mensaje = Encoding.UTF8.GetString(buffer, 0, result.Count);
 
+
                     try
                     {
                         var objeto = JsonConvert.DeserializeObject<Dictionary<string, object>>(mensaje);

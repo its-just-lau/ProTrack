@@ -83,6 +83,7 @@ namespace ProTrack
                         // Si 'datos' ya viene como JArray o List<object>, primero lo convertimos a JSON string
                         string json;
 
+
                         if (datos is JToken jtoken)
                         {
                             json = jtoken.ToString(Formatting.None);
@@ -96,6 +97,8 @@ namespace ProTrack
                             // Intentamos serializar el objeto recibido
                             json = JsonConvert.SerializeObject(datos);
                         }
+                        
+
 
                         var proyectos = JsonConvert.DeserializeObject<List<Dictionary<string, string>>>(json);
 

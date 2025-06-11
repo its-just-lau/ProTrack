@@ -25,7 +25,7 @@ namespace ProTrack
             ClienteWS.AlRecibirRespuestaEstado += ManejarRespuesta;
 
             await ClienteWS.EnviarAsync(new { accion = "listar_estudiantes" });
-            await ClienteWS.EnviarAsync(new { accion = "listar_proyectos_asesor" });
+            await ClienteWS.EnviarAsync(new { accion = "proyecto_asesor" });
 
         }
 
@@ -142,6 +142,11 @@ namespace ProTrack
             };
 
             await ClienteWS.EnviarAsync(solicitud);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -41,6 +41,7 @@ namespace ProTrack
             ClienteWS.AlRecibirRespuestaEstado += (estado, datos) =>
             {
                 Console.WriteLine($"Estado: {estado}, Datos: {datos}");
+                historial?.ManejarRespuestaAuditorias(estado, datos);
                 viewProy?.ManejarRespuestaEstado(estado, datos);
                 newProy?.ManejarRespuestaEstado(estado, datos);
                 newAlu?.ManejarRespuestaEstado (estado, datos);
@@ -58,6 +59,7 @@ namespace ProTrack
                 panAddEstu.Visible = false;
                 panAsig.Visible = false;
                 panAsignarProy.Visible = false;
+                panAvances.Visible = false;
             }
         }
 
@@ -539,6 +541,7 @@ namespace ProTrack
 
         private void btnAsigProy_Click(object sender, EventArgs e)
         {
+            CerrarFormsHijos();
             FrmAsiganrProy asiganrProy = new FrmAsiganrProy();
             asiganrProy.Show();
         }

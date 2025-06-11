@@ -14,6 +14,7 @@ namespace ProTrack
 {
     public partial class FrmAvances : Form
     {
+        private string ultimaAccion = "";
         public FrmAvances()
         {
             InitializeComponent();
@@ -22,9 +23,12 @@ namespace ProTrack
 
         private async void btnCargar_Click(object sender, EventArgs e)
         {
+            int idProyecto = Convert.ToInt32(cbxProyectos.SelectedValue);
+            ultimaAccion = "listar_avances";
             var solicitud = new
             {
-                accion = "listar_avances"
+                accion = ultimaAccion,
+                id_proyecto = idProyecto
             };
 
             await ClienteWS.EnviarAsync(solicitud);
@@ -32,7 +36,17 @@ namespace ProTrack
 
         private async void FrmAvances_Load(object sender, EventArgs e)
         {
-            await ClienteWS.EnviarAsync(new { accion = "listar_proyectos_alumno" });
+            if (Sesion.EsAsesor)
+            {
+                ultimaAccion = "proyecto_asesor";
+                await ClienteWS.EnviarAsync(new { accion = ultimaAccion });
+            }
+            else
+            {
+                ultimaAccion = "listar_proyectos_alumno";
+                await ClienteWS.EnviarAsync(new { accion = ultimaAccion });
+            }
+
         }
 
         private void FrmAvances_FormClosed(object sender, FormClosedEventArgs e)
@@ -81,16 +95,46 @@ namespace ProTrack
                             return;
                         }
 
-                        // Aquí creamos una lista de objetos anónimos con propiedades para el ComboBox
-                        var proyectosAnon = lista.Select(d => new
+                        // Si la respuesta es de proyectos, llenar el ComboBox
+                        if (ultimaAccion == "proyecto_asesor" || ultimaAccion == "listar_proyectos_alumno")
                         {
-                            id_proyecto = d.ContainsKey("id_proyecto") ? d["id_proyecto"] : "",
-                            nombre = d.ContainsKey("nombre") ? d["nombre"] : ""
-                        }).ToList();
+                            var proyectosAnon = lista.Select(d => new
+                            {
+                                id_proyecto = d.ContainsKey("id_proyecto") ? d["id_proyecto"] : "",
+                                nombre = d.ContainsKey("nombre") ? d["nombre"] : ""
+                            }).ToList();
 
-                        cbxProyectos.DataSource = proyectosAnon;
-                        cbxProyectos.DisplayMember = "nombre";
-                        cbxProyectos.ValueMember = "id_proyecto";
+                            cbxProyectos.DataSource = proyectosAnon;
+                            cbxProyectos.DisplayMember = "nombre";
+                            cbxProyectos.ValueMember = "id_proyecto";
+                        }
+                        else if (ultimaAccion == "listar_avances")
+                        {
+                            if (dgvAvances.Columns.Count == 0)
+                            {
+                                dgvAvances.Columns.Add("id_avance", "ID");
+                                dgvAvances.Columns.Add("descripcion", "Descripción");
+                                dgvAvances.Columns.Add("fecha_registro", "Fecha");
+                                dgvAvances.Columns.Add("porcentaje_completado", "% Completado");
+                            }
+
+                            dgvAvances.Rows.Clear();
+
+                            foreach (var a in lista)
+                            {
+                                dgvAvances.Rows.Add(
+                                    a["id_avance"],
+                                    a["descripcion"],
+                                    a["fecha_registro"],
+                                    a["porcentaje_completado"]
+                                );
+                            }
+                            dgvAvances.Columns[1].Width = 200;
+                            dgvAvances.EnableHeadersVisualStyles = false;
+                            dgvAvances.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(100, 130, 200);
+                            dgvAvances.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 8, FontStyle.Bold);
+                            dgvAvances.GridColor = Color.Black;
+                        }
                     }
                     catch (Exception ex)
                     {
@@ -104,7 +148,55 @@ namespace ProTrack
             }));
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            cbxProyectos.SelectedIndex = 0;
+            dtpFecha.Value = DateTime.Today;
+            txtDescripcion.Text = "";
+            nUpPorcentaje.Value = 0;
+        }
 
+        private async void btnAgregar_Click(object sender, EventArgs e)
+        {
+            if (cbxProyectos.SelectedValue == null)
+            {
+                MessageBox.Show("Debe seleccionar un proyecto.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
+            if (string.IsNullOrWhiteSpace(txtDescripcion.Text))
+            {
+                MessageBox.Show("Debe ingresar una descripción del avance.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (nUpPorcentaje.Value <= 0 || nUpPorcentaje.Value > 100)
+            {
+                MessageBox.Show("Ingrese un porcentaje válido (1-100).", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            try
+            {
+                int idProyecto = Convert.ToInt32(cbxProyectos.SelectedValue);
+                string descripcion = txtDescripcion.Text.Trim();
+                int porcentaje = (int)nUpPorcentaje.Value;
+
+                var solicitud = new
+                {
+                    accion = "insertar_avance",
+                    id_proyecto = idProyecto,
+                    descripcion = descripcion,
+                    fecha_registro = dtpFecha.Value.ToString("yyyy-MM-dd"),
+                    porcentaje_completado = porcentaje
+                };
+
+                await ClienteWS.EnviarAsync(solicitud);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al preparar el avance.\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }
