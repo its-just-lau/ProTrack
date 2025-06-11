@@ -59,25 +59,6 @@ namespace ProTrack
                             switch (opc)
                             {
                                 case 1: // Avances por proyecto
-                                    //dgvReporte.Columns.Add("id_avance", "ID");
-                                    //dgvReporte.Columns.Add("descripcion", "Descripción");
-                                    //dgvReporte.Columns.Add("fecha", "Fecha");
-                                    //dgvReporte.Columns.Add("porcentaje_completado", "Porcentaje");
-
-                                    //foreach (var item in lista)
-                                    //    dgvReporte.Rows.Add(item["id_avance"], item["descripcion"], item["fecha"], item["porcentaje_completado"]);
-
-                                    // Llenar ComboBox con los proyectos
-                                    //cmBoxProyecto.DisplayMember = "nombre";
-                                    //cmBoxProyecto.ValueMember = "id_proyecto";
-                                    //cmBoxProyecto.DataSource = lista
-                                    //    .Select(item => new
-                                    //    {
-                                    //        nombre = item["nombre"],
-                                    //        id_proyecto = item["id_proyecto"]
-                                    //    })
-                                    //    .ToList();
-                                    
                                         if (lista.Any() && lista[0].ContainsKey("id_proyecto")) // Carga proyectos al ComboBox
                                         {
                                             cmBoxProyecto.DisplayMember = "nombre";
