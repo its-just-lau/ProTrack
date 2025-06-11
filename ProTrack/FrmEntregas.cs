@@ -42,6 +42,8 @@ namespace ProTrack
             {
                 try
                 {
+                    Console.WriteLine("Mensaje recibido: " + datos);
+
                     JToken datosJson = null;
                     try
                     {
@@ -181,7 +183,6 @@ namespace ProTrack
                 id_proyecto = Convert.ToInt32(cmbProyectos.SelectedValue),
                 nombre_entrega = txtNombreEntrega.Text.Trim(),
                 fecha_programada = dtpFecha.Value.ToString("yyyy-MM-dd"),
-                fecha_real = DateTime.Now.ToString("yyyy-MM-dd"),
                 estatus = cmbEstatus.SelectedItem?.ToString() ?? "Pendiente"
             };
 
