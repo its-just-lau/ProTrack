@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace ProTrack
 {
@@ -15,7 +16,8 @@ namespace ProTrack
     {
         public FrmEntregas()
         {
-            InitializeComponent();      
+            InitializeComponent();
+            ClienteWS.AlRecibirRespuestaEstado += ManejarRespuestaEstado;
         }
 
         private void label4_Click(object sender, EventArgs e)
@@ -32,78 +34,114 @@ namespace ProTrack
             });
         }
 
-        public void ManejarRespuestaEstado(string estado, object datos)
+        public void ManejarRespuestaEstado(string estado, string datos)
         {
+            if (this.IsDisposed) return;
+
             this.Invoke((MethodInvoker)(() =>
             {
                 try
                 {
+                    JToken datosJson = null;
+                    try
+                    {
+                        datosJson = JToken.Parse(datos);
+                    }
+                    catch
+                    {
+                        // Si no es JSON válido, queda null y se puede manejar como texto plano
+                    }
+
                     if (estado == "exito")
                     {
-                        string json = datos.ToString();
-
-                        if (json.Contains("id_proyecto"))
+                        if (datosJson != null)
                         {
-                            // Llenar ComboBox con proyectos
-                            var lista = JsonConvert.DeserializeObject<List<Dictionary<string, string>>>(json);
-                            cmbProyectos.DisplayMember = "nombre";
-                            cmbProyectos.ValueMember = "id_proyecto";
-                            cmbProyectos.DataSource = lista
-                                .Select(p => new
+                            // 1. Si es lista de proyectos
+                            if (datosJson is JArray arregloProyectos &&
+                                arregloProyectos.Count > 0 &&
+                                arregloProyectos[0]["id_proyecto"] != null)
+                            {
+                                var lista = arregloProyectos.ToObject<List<Dictionary<string, string>>>();
+                                cmbProyectos.DisplayMember = "nombre";
+                                cmbProyectos.ValueMember = "id_proyecto";
+                                cmbProyectos.DataSource = lista
+                                    .Select(p => new
+                                    {
+                                        nombre = p["nombre"],
+                                        id_proyecto = p["id_proyecto"]
+                                    }).ToList();
+
+                                if (cmbProyectos.Items.Count > 0)
+                                    cmbProyectos.SelectedIndex = 0;
+                            }
+                            // 3. Si vienen entregas
+                            else if (datosJson is JArray arregloEntregas &&
+                                     arregloEntregas.Count > 0 &&
+                                     arregloEntregas[0]["id_entrega"] != null)
+                            {
+                                var entregas = arregloEntregas.ToObject<List<Dictionary<string, string>>>();
+
+                                dgvEntregas.Columns.Clear();
+                                dgvEntregas.Rows.Clear();
+
+                                dgvEntregas.Columns.Add("id_entrega", "ID Entrega");
+                                dgvEntregas.Columns.Add("nombre_entrega", "Nombre");
+                                dgvEntregas.Columns.Add("fecha_programada", "Fecha Programada");
+                                dgvEntregas.Columns.Add("fecha_real", "Fecha Real");
+                                dgvEntregas.Columns.Add("estatus", "Estatus");
+
+                                foreach (var e in entregas)
                                 {
-                                    nombre = p["nombre"],
-                                    id_proyecto = p["id_proyecto"]
-                                }).ToList();
+                                    e.TryGetValue("id_entrega", out string idEntrega);
+                                    e.TryGetValue("nombre_entrega", out string nombreEntrega);
+                                    e.TryGetValue("fecha_programada", out string fechaProgramada);
+                                    e.TryGetValue("fecha_real", out string fechaReal);
+                                    e.TryGetValue("estatus", out string estatus);
 
-                            if (cmbProyectos.Items.Count > 0)
-                                cmbProyectos.SelectedIndex = 0;
-                        }
-                        else if (json.Contains("Entrega registrada."))
-                        {
-                            MessageBox.Show("Entrega registrada correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    dgvEntregas.Rows.Add(
+                                        idEntrega ?? "",
+                                        nombreEntrega ?? "",
+                                        fechaProgramada ?? "",
+                                        fechaReal ?? "",
+                                        estatus ?? ""
+                                    );
+                                }
 
-                            if (cmbProyectos.SelectedValue != null)
-                                _ = CargarEntregasPorProyecto(Convert.ToInt32(cmbProyectos.SelectedValue));
-
-                            // 🔄 Limpiar campos del formulario
-                            txtNombreEntrega.Clear();
-                            dtpFecha.Value = DateTime.Today;
-                            cmbEstatus.SelectedIndex = -1;
-                            cmbProyectos.SelectedIndex = 0;
+                                dgvEntregas.EnableHeadersVisualStyles = false;
+                                dgvEntregas.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(100, 130, 200);
+                                dgvEntregas.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 8, FontStyle.Bold);
+                                dgvEntregas.GridColor = Color.Black;
+                            }
+                            else
+                            {
+                                // datosJson es JSON pero no corresponde a proyectos ni entregas, mostrar mensaje genérico
+                                MessageBox.Show("No se pudieron interpretar los datos recibidos.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            }
                         }
                         else
                         {
-                            var entregas = JsonConvert.DeserializeObject<List<Dictionary<string, string>>>(json);
-
-                            dgvEntregas.Columns.Clear();
-                            dgvEntregas.Rows.Clear();
-
-                            dgvEntregas.Columns.Add("id_entrega", "ID Entrega");
-                            dgvEntregas.Columns.Add("nombre_entrega", "Nombre");
-                            dgvEntregas.Columns.Add("fecha_programada", "Fecha Programada");
-                            dgvEntregas.Columns.Add("fecha_real", "Fecha Real");
-                            dgvEntregas.Columns.Add("estatus", "Estatus");
-
-                            foreach (var e in entregas)
+                            // datos no es JSON, tratarlo como texto plano (ejemplo: mensaje de éxito)
+                            if (!string.IsNullOrWhiteSpace(datos) && datos.Contains("Entrega registrada."))
                             {
-                                dgvEntregas.Rows.Add(
-                                    e["id_entrega"],
-                                    e["nombre_entrega"],
-                                    e["fecha_programada"],
-                                    e["fecha_real"],
-                                    e["estatus"]
-                                );
-                            }
+                                MessageBox.Show("Entrega registrada correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                            dgvEntregas.EnableHeadersVisualStyles = false;
-                            dgvEntregas.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(100, 130, 200);
-                            dgvEntregas.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 8, FontStyle.Bold);
-                            dgvEntregas.GridColor = Color.Black;
+                                if (cmbProyectos.SelectedValue != null &&
+                                    int.TryParse(cmbProyectos.SelectedValue.ToString(), out int idProyecto))
+                                {
+                                    _ = CargarEntregasPorProyecto(idProyecto);
+                                }
+
+                                LimpiarCampos();
+                            }
+                            else
+                            {
+                                MessageBox.Show(datos, "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
                         }
                     }
                     else if (estado == "error")
                     {
-                        MessageBox.Show(datos.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show(datos, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 catch (Exception ex)
@@ -113,16 +151,27 @@ namespace ProTrack
             }));
         }
 
+
+
+
+
         private void btnCargar_Click(object sender, EventArgs e)
         {
+            // Aqui no habra nada
+        }
 
+        private void LimpiarCampos()
+        {
+            txtNombreEntrega.Clear();
+            dtpFecha.Value = DateTime.Today;
+            cmbEstatus.SelectedIndex = -1;
         }
 
         private async void btnRegistrar_Click(object sender, EventArgs e)
         {
             if (cmbProyectos.SelectedValue == null || string.IsNullOrWhiteSpace(txtNombreEntrega.Text))
             {
-                MessageBox.Show("Llena todos los campos requeridos.");
+                MessageBox.Show("Llena todos los campos requeridos.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -133,18 +182,15 @@ namespace ProTrack
                 nombre_entrega = txtNombreEntrega.Text.Trim(),
                 fecha_programada = dtpFecha.Value.ToString("yyyy-MM-dd"),
                 fecha_real = DateTime.Now.ToString("yyyy-MM-dd"),
-            estatus = cmbEstatus.SelectedItem?.ToString() ?? "Pendiente"
+                estatus = cmbEstatus.SelectedItem?.ToString() ?? "Pendiente"
             };
 
             await ClienteWS.EnviarAsync(nuevaEntrega);
-            // 🔄 Limpiar campos del formulario
-            txtNombreEntrega.Clear();
-            dtpFecha.Value = DateTime.Today;
-            cmbEstatus.SelectedIndex = -1;
+            LimpiarCampos();
 
-            // Recargar entregas si hay proyecto seleccionado
             if (cmbProyectos.SelectedValue != null)
                 _ = CargarEntregasPorProyecto(Convert.ToInt32(cmbProyectos.SelectedValue));
+
             txtNombreEntrega.Focus();
         }
 
@@ -159,8 +205,10 @@ namespace ProTrack
 
         private async void cmbProyectos_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cmbProyectos.SelectedValue != null)
-                await CargarEntregasPorProyecto(Convert.ToInt32(cmbProyectos.SelectedValue));
+            if (cmbProyectos.SelectedValue != null && int.TryParse(cmbProyectos.SelectedValue.ToString(), out int idProyecto))
+            {
+                await CargarEntregasPorProyecto(idProyecto);
+            }
         }
 
         private void FrmEntregas_FormClosed(object sender, FormClosedEventArgs e)
@@ -172,12 +220,22 @@ namespace ProTrack
         {
             if (!Sesion.EsAsesor)
             {
-                MessageBox.Show("Solo los asesores pueden gestionar entregas.");
-                Close();
-                return;
+                // Si es estudiante, deshabilitamos el área de registro
+                btnRegistrar.Enabled = false;
+                txtNombreEntrega.Enabled = false;
+                dtpFecha.Enabled = false;
+                cmbEstatus.Enabled = false;
+            }
+            else
+            {
+                // Asesor tiene todo habilitado
+                btnRegistrar.Enabled = true;
+                txtNombreEntrega.Enabled = true;
+                dtpFecha.Enabled = true;
+                cmbEstatus.Enabled = true;
             }
 
-            await ClienteWS.EnviarAsync(new { accion = "proyecto_asesor" });
+            await ClienteWS.EnviarAsync(new { accion = "listar_entregas" });
         }
     }
 }
