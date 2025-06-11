@@ -94,6 +94,12 @@
     <Compile Include="Configuracion.Designer.cs">
       <DependentUpon>Configuracion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Filtro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Filtro.Designer.cs">
+      <DependentUpon>Filtro.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -177,6 +183,9 @@
     <Compile Include="Sesion.cs" />
     <EmbeddedResource Include="Configuracion.resx">
       <DependentUpon>Configuracion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Filtro.resx">
+      <DependentUpon>Filtro.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -305,6 +314,8 @@
     <Content Include="config.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\logo.png" />
+    <None Include="Resources\16 sin título_20250609093606.png" />
     <None Include="Resources\ChatGPT Image 9 jun 2025, 02_23_08 p.m..png" />
     <None Include="Resources\mdi--user-box.png" />
     <None Include="Resources\mdi--lock-reset.png" />

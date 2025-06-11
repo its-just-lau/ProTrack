@@ -28,11 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmChangePassword));
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtActual = new System.Windows.Forms.TextBox();
+            this.txtNueva = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtRepetir = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -48,19 +49,19 @@
             this.label1.TabIndex = 17;
             this.label1.Text = "Contraseña Anterior";
             // 
-            // textBox1
+            // txtActual
             // 
-            this.textBox1.Location = new System.Drawing.Point(28, 37);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(292, 26);
-            this.textBox1.TabIndex = 18;
+            this.txtActual.Location = new System.Drawing.Point(28, 37);
+            this.txtActual.Name = "txtActual";
+            this.txtActual.Size = new System.Drawing.Size(292, 26);
+            this.txtActual.TabIndex = 18;
             // 
-            // textBox2
+            // txtNueva
             // 
-            this.textBox2.Location = new System.Drawing.Point(28, 103);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(292, 26);
-            this.textBox2.TabIndex = 20;
+            this.txtNueva.Location = new System.Drawing.Point(28, 103);
+            this.txtNueva.Name = "txtNueva";
+            this.txtNueva.Size = new System.Drawing.Size(292, 26);
+            this.txtNueva.TabIndex = 20;
             // 
             // label2
             // 
@@ -71,12 +72,12 @@
             this.label2.TabIndex = 19;
             this.label2.Text = "Nueva Contraseña";
             // 
-            // textBox3
+            // txtRepetir
             // 
-            this.textBox3.Location = new System.Drawing.Point(28, 167);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(292, 26);
-            this.textBox3.TabIndex = 22;
+            this.txtRepetir.Location = new System.Drawing.Point(28, 167);
+            this.txtRepetir.Name = "txtRepetir";
+            this.txtRepetir.Size = new System.Drawing.Size(292, 26);
+            this.txtRepetir.TabIndex = 22;
             // 
             // label3
             // 
@@ -95,6 +96,7 @@
             this.button1.TabIndex = 23;
             this.button1.Text = "Cambiar";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // pictureBox1
             // 
@@ -113,13 +115,14 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(235)))), ((int)(((byte)(245)))));
             this.ClientSize = new System.Drawing.Size(499, 279);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.txtRepetir);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtNueva);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtActual);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmChangePassword";
             this.Text = "Cambiar contraseña";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -132,10 +135,10 @@
 
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtActual;
+        private System.Windows.Forms.TextBox txtNueva;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtRepetir;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button1;
     }

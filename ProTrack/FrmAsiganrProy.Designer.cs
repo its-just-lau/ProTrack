@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAsiganrProy));
             this.label1 = new System.Windows.Forms.Label();
             this.cbxEstudiantes = new System.Windows.Forms.ComboBox();
             this.cbxProyectos = new System.Windows.Forms.ComboBox();
@@ -115,6 +116,7 @@
             this.Controls.Add(this.cbxEstudiantes);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmAsiganrProy";
             this.Text = "Asignar";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmAsiganrProy_FormClosed);

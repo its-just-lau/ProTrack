@@ -599,6 +599,7 @@ namespace ProTrack
 
         private void cambiarContraseñaToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            CerrarFormsHijos();
             FrmChangePassword changePassword = new FrmChangePassword();
             changePassword.Show();
         }

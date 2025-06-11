@@ -14,5 +14,6 @@ namespace ProTrack
 
         public static bool EsAsesor => Rol == "ASESOR";
         public static bool EsEstudiante => Rol == "ESTUDIANTE";
+
     }
 }

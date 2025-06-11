@@ -28,17 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmNewAsesor));
             this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.txtContra = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.txtNombreUsuario = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtDepartamento = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtCorreo = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtNombreReal = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -52,22 +53,24 @@
             this.button2.TabIndex = 30;
             this.button2.Text = "Agregar";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // button1
+            // btnCancelar
             // 
-            this.button1.Location = new System.Drawing.Point(812, 258);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(103, 44);
-            this.button1.TabIndex = 29;
-            this.button1.Text = "Limpiar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnCancelar.Location = new System.Drawing.Point(812, 258);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(103, 44);
+            this.btnCancelar.TabIndex = 29;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
-            // textBox6
+            // txtContra
             // 
-            this.textBox6.Location = new System.Drawing.Point(289, 204);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(215, 26);
-            this.textBox6.TabIndex = 27;
+            this.txtContra.Location = new System.Drawing.Point(289, 204);
+            this.txtContra.Name = "txtContra";
+            this.txtContra.Size = new System.Drawing.Size(215, 26);
+            this.txtContra.TabIndex = 27;
             // 
             // label7
             // 
@@ -78,12 +81,12 @@
             this.label7.TabIndex = 26;
             this.label7.Text = "Contraseña";
             // 
-            // textBox5
+            // txtNombreUsuario
             // 
-            this.textBox5.Location = new System.Drawing.Point(41, 204);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(215, 26);
-            this.textBox5.TabIndex = 25;
+            this.txtNombreUsuario.Location = new System.Drawing.Point(41, 204);
+            this.txtNombreUsuario.Name = "txtNombreUsuario";
+            this.txtNombreUsuario.Size = new System.Drawing.Size(215, 26);
+            this.txtNombreUsuario.TabIndex = 25;
             // 
             // label6
             // 
@@ -94,12 +97,12 @@
             this.label6.TabIndex = 24;
             this.label6.Text = "Usuario";
             // 
-            // textBox3
+            // txtDepartamento
             // 
-            this.textBox3.Location = new System.Drawing.Point(451, 136);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(296, 26);
-            this.textBox3.TabIndex = 21;
+            this.txtDepartamento.Location = new System.Drawing.Point(451, 136);
+            this.txtDepartamento.Name = "txtDepartamento";
+            this.txtDepartamento.Size = new System.Drawing.Size(296, 26);
+            this.txtDepartamento.TabIndex = 21;
             // 
             // label4
             // 
@@ -110,12 +113,12 @@
             this.label4.TabIndex = 20;
             this.label4.Text = "Departamento";
             // 
-            // textBox2
+            // txtCorreo
             // 
-            this.textBox2.Location = new System.Drawing.Point(41, 136);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(382, 26);
-            this.textBox2.TabIndex = 19;
+            this.txtCorreo.Location = new System.Drawing.Point(41, 136);
+            this.txtCorreo.Name = "txtCorreo";
+            this.txtCorreo.Size = new System.Drawing.Size(382, 26);
+            this.txtCorreo.TabIndex = 19;
             // 
             // label3
             // 
@@ -126,12 +129,12 @@
             this.label3.TabIndex = 18;
             this.label3.Text = "Correo";
             // 
-            // textBox1
+            // txtNombreReal
             // 
-            this.textBox1.Location = new System.Drawing.Point(41, 73);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(453, 26);
-            this.textBox1.TabIndex = 17;
+            this.txtNombreReal.Location = new System.Drawing.Point(41, 73);
+            this.txtNombreReal.Name = "txtNombreReal";
+            this.txtNombreReal.Size = new System.Drawing.Size(453, 26);
+            this.txtNombreReal.TabIndex = 17;
             // 
             // label1
             // 
@@ -159,20 +162,23 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(235)))), ((int)(((byte)(245)))));
             this.ClientSize = new System.Drawing.Size(938, 318);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.textBox6);
+            this.Controls.Add(this.txtContra);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.txtNombreUsuario);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.txtDepartamento);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtCorreo);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtNombreReal);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmNewAsesor";
             this.Text = "Agregar Asesor";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmNewAsesor_FormClosed);
+            this.Load += new System.EventHandler(this.FrmNewAsesor_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -182,17 +188,17 @@
         #endregion
 
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox txtContra;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox txtNombreUsuario;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtDepartamento;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtCorreo;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtNombreReal;
         private System.Windows.Forms.Label label1;
     }
 }

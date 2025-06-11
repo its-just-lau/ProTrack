@@ -121,16 +121,6 @@ namespace ProTrack
 
         }
 
-        private void label4_MouseEnter(object sender, EventArgs e)
-        {
-            label4.ForeColor = Color.FromArgb(100, 130, 200);
-        }
-
-        private void label4_MouseLeave(object sender, EventArgs e)
-        {
-            label4.ForeColor = Color.FromArgb(60, 85, 165);
-        }
-
         private void chBoxMostrar_CheckedChanged(object sender, EventArgs e)
         {
             if (chBoxMostrar.Checked)
@@ -143,17 +133,25 @@ namespace ProTrack
             }
         }
 
-        public void Clear()
-        {
-            txtUsuario.Text = "";
-            txtContraseña.Text = "";
-            txtUsuario.Focus();
-            chBoxMostrar.Checked = false;
-        }
-
         private async void FRMLogin_FormClosing(object sender, FormClosingEventArgs e)
         {
             await ClienteWS.DesconectarAsync();
+        }
+
+        private void Registrar_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Filtro filtro = new Filtro();
+            filtro.Show();
+        }
+
+        private void Registrar_MouseEnter(object sender, EventArgs e)
+        {
+            Registrar.LinkColor = Color.FromArgb(100, 130, 200);
+        }
+
+        private void Registrar_MouseLeave(object sender, EventArgs e)
+        {
+            Registrar.LinkColor = Color.FromArgb(60, 85, 165);
         }
     }
 }

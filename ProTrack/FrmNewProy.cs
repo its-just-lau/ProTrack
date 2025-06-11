@@ -35,7 +35,7 @@ namespace ProTrack
                     fecha_inicio = dtpInicio.Value.ToString("yyyy-MM-dd"),
                     fecha_estimada_entrega = dtpEntrega.Value.ToString("yyyy-MM-dd"),
                     estatus = cbxEstatus.SelectedItem?.ToString(),
-                    id_asesor = Sesion.IdUsuario // Eso significa que la id de asesor no hace falta!
+                    //id_asesor = Sesion.IdUsuario // Eso significa que la id de asesor no hace falta!
                 }
             };
 
@@ -57,5 +57,9 @@ namespace ProTrack
             }));
         }
 
+        private void txtNombre_TextChanged(object sender, EventArgs e)
+        {
+            labNombre.Text = txtNombre.Text.Trim();
+        }
     }
 }
